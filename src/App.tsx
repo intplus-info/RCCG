@@ -17,7 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
-} from "./components/ui/carousel";
+} from "@/components/ui/carousel";
 import Header from './components/Header';
 const App = () => {
   const [activeLink, setActiveLink] = useState<string>('home');

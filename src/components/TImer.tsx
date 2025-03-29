@@ -14,19 +14,19 @@ const TImer = () => {
       <div className='flex gap-4'>
         <div className='flex flex-col items-center justify-center gap-3 '>
           <p className='text-[#FF7F00] text-2xl'>{day}</p>
-          <p className='text-2xl bg-[#FFFFFF33] text-gray-300 px-3'>Days</p>
+          <p className='text-sm md:text-2xl  bg-[#FFFFFF33] text-gray-300 px-3'>Days</p>
         </div>
         <div className='flex flex-col items-center justify-center gap-3 '>
           <p className='text-[#FF7F00] text-2xl'>{hours}</p>
-          <p className='text-2xl bg-[#FFFFFF33] text-gray-300 px-3'>Hours</p>
+          <p className='text-sm md:text-2xl bg-[#FFFFFF33] text-gray-300 px-3'>Hours</p>
         </div>
         <div className='flex flex-col items-center justify-center gap-3 '>
           <p className='text-[#FF7F00] text-2xl'>{minutes}</p>
-          <p className='text-2xl bg-[#FFFFFF33] text-gray-300 px-3'>Minutes</p>
+          <p className='text-sm md:text-2xl  bg-[#FFFFFF33] text-gray-300 px-3'>Minutes</p>
         </div>
         <div className='flex flex-col items-center justify-center gap-3 '>
           <p className='text-[#FF7F00] text-2xl'>{seconds}</p>
-          <p className='text-2xl bg-[#FFFFFF33] text-gray-300 px-3'>Seconds</p>
+          <p className='text-sm md:text-2xl  bg-[#FFFFFF33] text-gray-300 px-3'>Seconds</p>
         </div>
       </div>
     </div>
