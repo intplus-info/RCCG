@@ -1,0 +1,83 @@
+import location from "../assets/location.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebookF,
+  faInstagram,
+  faTwitter,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+
+const Header = () => {
+  return (
+    <nav className='flex justify-between py-9 bg-transparent'>
+      <div className='flex gap-4'>
+        <img src={location} alt='location' className='w-4 ' />
+        <p className='text-sm text-dark font-light text-white'>
+          5592 Aurora Rd, Whitchurch-Stouffville, ON, Canada
+        </p>
+      </div>
+      <div className='flex items-center gap-4'>
+        <a
+          href='https://www.google.com'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FontAwesomeIcon
+            icon={faSearch}
+            className='h-5 w-5 cursor-pointer text-white '
+          />
+        </a>
+        <div className='h-4 w-px bg-gray-200'></div>
+        <a
+          href='https://www.facebook.com'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FontAwesomeIcon
+            icon={faFacebookF}
+            className='h-5 w-5 cursor-pointer text-white'
+          />
+        </a>
+        <div className='h-4 w-px bg-gray-200'></div>
+
+        <a
+          href='https://www.twitter.com'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FontAwesomeIcon
+            icon={faTwitter}
+            className='h-5 w-5 cursor-pointer text-white'
+          />
+        </a>
+        <div className='h-4 w-px bg-gray-200'></div>
+
+        <a
+          href='https://www.youtube.com'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FontAwesomeIcon
+            icon={faYoutube}
+            className='h-5 w-5 cursor-pointer text-white'
+          />
+        </a>
+        <div className='h-4 w-px bg-gray-200'></div>
+
+        <a
+          href='https://www.instagram.com'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FontAwesomeIcon
+            icon={faInstagram}
+            className='h-5 w-5 cursor-pointer text-white'
+          />
+        </a>
+      </div>
+    </nav>
+  );
+};
+
+export default Header;
