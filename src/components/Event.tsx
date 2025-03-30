@@ -8,13 +8,14 @@ const Event = () => {
         <p className='uppercase text-sm text-white'>UPCOMING</p>
         <p className='uppercase text-2xl text-white'>Events</p>
       </div>
-      <div className='w-64 flex-1 bg-white flex flex-col  '>
+      <div className='w-32 flex-1 bg-white'>
+        {" "}
         <img src={image5} alt='image5' className='w-full h-full object-cover' />
-        <p className='relative  -mt-19 text-black bg-white p-2 opacity-50 '>
+        <p className='relative  -mt-18 text-black bg-white p-3 opacity-50 '>
           <span className='flex flex-col justify-center text-gray-400 items-center gap-4'>
             April 30, 2025
             <p className='text-sm font-bold text-black'>
-              Relationship With 
+            Relationship With
             </p>
           </span>
         </p>
