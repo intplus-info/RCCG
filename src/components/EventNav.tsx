@@ -3,7 +3,7 @@ import image6 from "../assets/image6.svg";
 
 const EventNav = () => {
   return (
-    <div className='flex flex-col justify-center items-center gap-9 p-6 mt-5'>
+    <div className='flex flex-col justify-center items-center gap-9 p-12 mt-5'>
       <div className='flex flex-col md:flex-row gap-10'>
         <div className='flex flex-col '>
           <div className='flex w-[440.350px]'>
