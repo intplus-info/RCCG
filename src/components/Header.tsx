@@ -10,10 +10,11 @@ import {
 
 const Header = () => {
   return (
-    <nav className='flex justify-between py-9 bg-transparent'>
+    <div className="py-5 flex flex-col gap-6 ">
+    <nav className='flex justify-between  bg-transparent px-5'>
       <div className='flex gap-4'>
         <img src={location} alt='location' className='w-4 ' />
-        <p className='text-sm text-dark font-light text-white'>
+        <p className='text-sm sm:text-0.5 font-small  text-dark font-light text-white'>
           5592 Aurora Rd, Whitchurch-Stouffville, ON, Canada
         </p>
       </div>
@@ -28,7 +29,7 @@ const Header = () => {
             className='h-5 w-5 cursor-pointer text-white '
           />
         </a>
-        <div className='h-4 w-px bg-gray-200'></div>
+        <div className='h-4 w-px bg-gray-600'></div>
         <a
           href='https://www.facebook.com'
           target='_blank'
@@ -39,7 +40,7 @@ const Header = () => {
             className='h-5 w-5 cursor-pointer text-white'
           />
         </a>
-        <div className='h-4 w-px bg-gray-200'></div>
+        <div className='h-4 w-px bg-gray-600'></div>
 
         <a
           href='https://www.twitter.com'
@@ -51,7 +52,7 @@ const Header = () => {
             className='h-5 w-5 cursor-pointer text-white'
           />
         </a>
-        <div className='h-4 w-px bg-gray-200'></div>
+        <div className='h-4 w-px bg-gray-600'></div>
 
         <a
           href='https://www.youtube.com'
@@ -63,7 +64,7 @@ const Header = () => {
             className='h-5 w-5 cursor-pointer text-white'
           />
         </a>
-        <div className='h-4 w-px bg-gray-200'></div>
+        <div className='h-4 w-px bg-gray-600'></div>
 
         <a
           href='https://www.instagram.com'
@@ -77,6 +78,9 @@ const Header = () => {
         </a>
       </div>
     </nav>
+    <hr className="w-full h-0.5  bg-gray-600"/>
+
+    </div>
   );
 };
 
