@@ -5,7 +5,7 @@ const TImer = () => {
     const minutes = date.getMinutes()
     const seconds = date.getSeconds()
   return (
-    <div className=' p-8  items-center justify-evenly gap-2 bg-[#5E5E5E] md:flex md:flex-row text-sm'>
+    <div className=' p-14  items-center justify-evenly gap-2 bg-[#5E5E5E] md:flex md:flex-row text-sm'>
       <div className='flex flex-col items-center justify-center gap-3'>
         <p className='text-2xl text-white'>Relationship With God</p>
         <div className='w-84 h-0.5 bg-[#FF7F00]'></div>

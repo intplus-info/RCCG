@@ -31,9 +31,9 @@ const App = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   
     const events = [
-      { image: image5, date: "April 30, 2025", title: "Relationship With", link: "#",text:"come and worship at our center and pray in one spirit" },
-      { image: image6, date: "April 30, 2025", title: "Abundant Love", link: "#",text:"come and worship at our center and pray in one spirit" },
-      { image: image7, date: "April 30, 2025", title: "God is Good", link: "#" ,text:"come and worship at our center and pray in one spirit"},
+      { image: image5, date: "April 30, 2025", title: "Relationship With", link: "#",text:"5Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " },
+      { image: image6, date: "April 30, 2025", title: "Abundant Love", link: "#",text:"5Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " },
+      { image: image7, date: "April 30, 2025", title: "God is Good", link: "#" ,text:"5Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "},
     ];
   const [activeLink, setActiveLink] = useState<string>("home");
   const [homeOpen, setHomeOpen] = useState<boolean>(true);
@@ -97,7 +97,7 @@ const App = () => {
         <div className='flex justify-between'>
 
           <img src={logo} alt='logo' className='hidden md:block w-33' />
-          <div className='flex gap-4 text-white text-sm cursor-pointer'>
+          <div className='flex gap-4 text-white text-sm capitalize cursor-pointer'>
             {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
               (link) => (
                 <p
@@ -165,14 +165,32 @@ const App = () => {
             </Carousel>
           </main>
         )}
+        {joinOpen && (
+          <div>
+            <div className="flex flex-col gap-4 justify-center items-center p-6">
+              <hr className="w-full h-0,5 text-white opacity-50" />
+            <h1 className="text-4xl capitalize text-white">join us</h1>
+            <hr className="w-full h-0,5 text-white opacity-50" />
+            </div>
+          </div>
+        )}
+        {sermonOpen && (
+          <div>
+            <div className="flex flex-col gap-4 justify-center items-center p-6">
+              <hr className="w-full h-0,5 text-white opacity-50" />
+            <h1 className="text-4xl capitalize text-white">Our Sermons</h1>
+            <hr className="w-full h-0,5 text-white opacity-50" />
+            </div>
+          </div>
+        )}
       </div>
 
       {homeOpen && (
         <>
          <div className="flex h-59 overflow-y-hidden">
-      <div className="w-1/6 bg-orange-400 flex flex-col justify-center items-center">
+      <div className="w-1/6 bg-orange-400 flex flex-col justify-center p-7">
         <p className="uppercase text-sm text-white">UPCOMING</p>
-        <p className="uppercase text-2xl text-white">Events</p>
+        <p className="uppercase text-4xl font-small text-white">Events</p>
       </div>
 
       {events.map((event, index) => (
@@ -185,19 +203,19 @@ const App = () => {
           <img src={event.image} alt="event" className="w-full h-full object-cover" />
 
           {hoveredIndex === index && (
-            <div className="absolute inset-0 bg-gray-500/80 flex flex-col justify-center items-center text-white gap-4 p-4">
-              <span className="text-lg font-bold">{event.date}</span>
-              <p className="text-sm md:text:xl font-bold">{event.title}</p>
-              <p className="text-sm md:text:xl font-sm text-center">{event.text}</p>
-              <a onClick={() => handleLinkClick("Events")} className="text-sm underline cursor-pointer">Learn More</a>
+            <div className="absolute inset-0 bg-white opacity-70 flex flex-col justify-center  text-white gap-4 p-4">
+              <span className="text-xl text-[#0D0D0D99]  font-bold">{event.date}</span>
+              <p className="text-sm md:text:2xl text-black font-bold">{event.title}</p>
+              <p className="text-sm md:text:xl text-[#0D0D0D99] font-sm ">{event.text}</p>
+              <a onClick={() => handleLinkClick("Events")} className="text-sm underline cursor-pointer text-[#0D0D0D99]">Learn More....</a>
             </div>
           )}
 
           {hoveredIndex !== index && (
-            <p className="absolute bottom-0 left-0 right-0 bg-white/80 text-black p-3">
-              <span className="flex flex-col justify-center text-gray-400 items-center gap-4">
+            <p className="absolute bottom-0 left-0 right-0 bg-white/80 text-black p-4">
+              <span className="flex flex-col justify-center text-gray-400  gap-2">
                 {event.date}
-                <p className="text-sm font-bold text-black">{event.title}</p>
+                <p className="text-lg font-small text-black">{event.title}</p>
               </span>
             </p>
           )}

@@ -1,8 +1,8 @@
 import image from "../assets/Image.svg";
 const JoinNav = () => {
   return (
-    <div className='flex flex-col items-center justify-center gap-9 p-4 md:p-23 mt-8'>
-      <h1 className="md:text-4xl uppercase font-bold text-black">Join Us at RCCG Strongtower Stouffville!</h1>
+    <div className='flex flex-col  justify-center items-center gap-6 p-4 md:px-[112px] md:py-9 mt-8'>
+      <h1 className="md:text-[44px] uppercase font-bold text-black">Join Us at RCCG Strongtower Stouffville!</h1>
       <p className="text-[#0D0D0D99] md:text-xl">
         AtRCCG Strongtower Stouffville, we are more than just a church—we are a
         family. Whether you’re new to faith, seeking a spiritual home, or
