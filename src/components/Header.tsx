@@ -78,7 +78,7 @@ const Header = () => {
         </a>
       </div>
     </nav>
-    <hr className="w-full h-0.5  bg-gray-600"/>
+    <hr className="w-full h-0.5  bg-gray-600 opacity-40"/>
 
     </div>
   );

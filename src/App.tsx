@@ -82,7 +82,7 @@ const App = () => {
   return (
     <>
       <div
-        className='flex flex-col '
+        className='flex flex-col  '
         style={{
           backgroundImage: `url(${
             homeOpen ? backgroundImages[currentSlide] : sermonimg
@@ -115,23 +115,23 @@ const App = () => {
         </div>
 
         {homeOpen && (
-          <main className='flex-grow relative h-[832px]'>
+          <main className='flex-grow relative h-[712px]'>
             <Carousel
               setApi={setApi}
               opts={{
                 align: "start",
                 loop: true,
               }}
-              className='relative h-[832px]'
+              className='relative h-[732px]'
             >
               <CarouselContent className='h-full'>
                 <CarouselItem className='h-full'>
-                  <div className='flex items-center justify-center mt-74 gap-6 h-full text-white'>
+                  <div className='flex items-center justify-center mt-64 gap-6 h-full text-white'>
                     <div className='text-center'>
                       <h1 className='text-4xl  font-normal mb-4'>
                         Welcome to 
                       </h1>
-                      <p className="text-7xl  font-bold mb-5">RCCG StrongTower Stouffville</p>
+                      <p className="text-5xl  font-bold mb-5">RCCG StrongTower Stouffville</p>
                       <p className='text-xl md:text-2xl mb-8'>
                         A Place of Worship, Growth, and Community
                       </p>

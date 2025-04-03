@@ -2,7 +2,7 @@ import image10 from "../assets/10.png"
 import frame43 from "../assets/Frame43.svg"
 const Sermons = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-5 p-13">
+    <div className="flex flex-col items-center justify-center gap-5  p-13">
     <div className="flex gap-3 items-center">
         <div className="w-28 bg-gray-400 h-0.5"></div>
         <p className="text-gray-700 text-sm">Latest Sermons</p>
