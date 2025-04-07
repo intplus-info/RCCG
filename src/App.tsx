@@ -151,29 +151,32 @@ const App = () => {
 
 
 
-        {isMobileMenuOpen && (
-  <div className='fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50'>
+{isMobileMenuOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50 min-h-screen">
     <button
       onClick={() => setIsMobileMenuOpen(false)}
-      className='absolute top-5 right-5 text-white text-4xl'
+      className="absolute top-4 right-4 text-white text-3xl md:text-4xl focus:outline-none"
+      aria-label="Close menu"
     >
-      &times;
+      ×
     </button>
 
-    {["home", "join", "sermons", "Events", "Give", "Gallery"].map((link) => (
-      <p
-        key={link}
-        onClick={() => {
-          handleLinkClick(link);
-          setIsMobileMenuOpen(false); // Close modal after click
-        }}
-        className={`text-white text-2xl py-4 cursor-pointer ${
-          activeLink === link ? "underline" : ""
-        }`}
-      >
-        {link}
-      </p>
-    ))}
+    <nav className="flex flex-col items-center gap-6 md:gap-8 w-full max-w-md px-4">
+      {["home", "join", "sermons", "Events", "Give", "Gallery"].map((link) => (
+        <p
+          key={link}
+          onClick={() => {
+            handleLinkClick(link);
+            setIsMobileMenuOpen(false);
+          }}
+          className={`text-white text-xl md:text-2xl py-2 cursor-pointer capitalize transition-all duration-200 hover:text-gray-200 ${
+            activeLink === link ? "underline underline-offset-4" : ""
+          }`}
+        >
+          {link}
+        </p>
+      ))}
+    </nav>
   </div>
 )}
 
