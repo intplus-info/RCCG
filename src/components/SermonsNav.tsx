@@ -113,7 +113,7 @@ const SermonsNav = ({ setSelectedSermonTitle }: SermonsNavProps) => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center gap-5 p-13 mb-22">
-          <div className="flex gap-3">
+          <div className="flex flex-col md:flex-row gap-3">
             <img
               src={sermonsData[openSermon].image}
               alt="sermon"
@@ -136,8 +136,8 @@ const SermonsNav = ({ setSelectedSermonTitle }: SermonsNavProps) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-5 py-5 px-21 mb-12">
-            <p className="text-[#0D0D0D99] font-normal text-xl">{sermonsData[openSermon].content}</p>
+          <div className="flex flex-col items-center justify-center gap-5 py-5 md:px-21 mb-12">
+            <p className="text-[#0D0D0D99] font-normal text-lg md:text-xl">{sermonsData[openSermon].content}</p>
           </div>
         </div>
       )}

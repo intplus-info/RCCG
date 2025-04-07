@@ -1,9 +1,9 @@
 const Blog = () => {
   return (
     <div className='flex flex-col md:flex-row '>
-      <div className=' w-full md:w-[600px] bg-orange-400 flex  flex-col justify-center  text-center'>
-        <p className='uppercase text-sm text-white'>Latest</p>
-        <p className='uppercase text-5xl text-white'>Blog</p>
+      <div className=' w-full md:w-[600px] md:bg-orange-400 flex  flex-col justify-center  text-center'>
+        <p className='uppercase text-sm text-black md:text-white'>Latest</p>
+        <p className='uppercase text-3xl text-black md:text-white'>Blog</p>
       </div>
       <div className='flex flex-col  gap-2 p-3  bg-[#E4E4E4]'>
         <p className='bg-orange-400 w-42  my-4 text-white p-6'>11 November</p>

@@ -60,7 +60,13 @@ const App = () => {
   const [eventsOpen, setEventsOpen] = useState<boolean>(false);
   const [galleryOpen, setGalleryOpen] = useState<boolean>(false);
   const [giveOpen, setGiveOpen] = useState<boolean>(false);
-  const [selectedSermonTitle, setSelectedSermonTitle] = useState<string | null>(null); 
+  const [selectedSermonTitle, setSelectedSermonTitle] = useState<string | null>(
+    null
+  );
+  const [SelectedEventTitle, setSelectedEventTitle] = useState<string | null>(
+    null
+  );
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLinkClick = (link: string) => {
     setActiveLink(link);
@@ -113,24 +119,64 @@ const App = () => {
       >
         <Header />
 
-        <div className='flex justify-between'>
-          <img src={logo} alt='logo' className='hidden md:block w-33' />
-          <div className='flex gap-4 text-white text-sm capitalize cursor-pointer'>
-            {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
-              (link) => (
-                <p
-                  key={link}
-                  onClick={() => handleLinkClick(link)}
-                  className={`px-4 py-1 ${
-                    activeLink === link ? "underline" : ""
-                  }`}
-                >
-                  {link}
-                </p>
-              )
-            )}
-          </div>
-        </div>
+        <div className='flex items-center justify-between p-4 w-full'>
+  {/* Left section: Logo */}
+  <div className='flex items-center'>
+    <img src={logo} alt='logo' className='hidden md:block w-33' />
+  </div>
+
+  {/* Desktop Menu */}
+  <div className='hidden md:flex gap-4 text-white text-sm capitalize cursor-pointer'>
+    {["home", "join", "sermons", "Events", "Give", "Gallery"].map((link) => (
+      <p
+        key={link}
+        onClick={() => handleLinkClick(link)}
+        className={`px-4 py-1 ${activeLink === link ? "underline" : ""}`}
+      >
+        {link}
+      </p>
+    ))}
+  </div>
+
+  {/* Mobile Menu Button */}
+  <div className='md:hidden'>
+    <button
+      onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      className='text-white text-3xl'
+    >
+      ☰
+    </button>
+  </div>
+</div>
+
+
+
+        {isMobileMenuOpen && (
+  <div className='fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50'>
+    <button
+      onClick={() => setIsMobileMenuOpen(false)}
+      className='absolute top-5 right-5 text-white text-4xl'
+    >
+      &times;
+    </button>
+
+    {["home", "join", "sermons", "Events", "Give", "Gallery"].map((link) => (
+      <p
+        key={link}
+        onClick={() => {
+          handleLinkClick(link);
+          setIsMobileMenuOpen(false); // Close modal after click
+        }}
+        className={`text-white text-2xl py-4 cursor-pointer ${
+          activeLink === link ? "underline" : ""
+        }`}
+      >
+        {link}
+      </p>
+    ))}
+  </div>
+)}
+
 
         {homeOpen && (
           <main className='flex-grow relative h-[712px]'>
@@ -192,11 +238,26 @@ const App = () => {
             </div>
           </div>
         )}
+        {eventsOpen && (
+          <div>
+            <div className='flex flex-col gap-4 justify-center items-center p-6'>
+              <hr className='w-full h-0,5 text-white opacity-50' />
+              <h1 className='text-4xl capitalize text-white'>
+                {" "}
+                {SelectedEventTitle || "Our Sermons"}{" "}
+              </h1>
+              <hr className='w-full h-0,5 text-white opacity-50' />
+            </div>
+          </div>
+        )}
         {sermonOpen && (
           <div>
             <div className='flex flex-col gap-4 justify-center items-center p-6'>
               <hr className='w-full h-0,5 text-white opacity-50' />
-              <h1 className='text-4xl capitalize text-white'> {selectedSermonTitle || "Our Sermons"} </h1>
+              <h1 className='text-4xl capitalize text-white'>
+                {" "}
+                {selectedSermonTitle || "Our Sermons"}{" "}
+              </h1>
               <hr className='w-full h-0,5 text-white opacity-50' />
             </div>
           </div>
@@ -208,13 +269,13 @@ const App = () => {
           <div className='flex h-59 overflow-y-hidden'>
             <div className='w-1/6 bg-orange-400 flex flex-col justify-center p-7'>
               <p className='uppercase text-sm text-white'>UPCOMING</p>
-              <p className='uppercase text-4xl font-small text-white'>Events</p>
+              <p className='uppercase text-sm md:text-4xl font-small text-white '>Events</p>
             </div>
 
             {events.map((event, index) => (
               <div
                 key={index}
-                className='w-32 flex-1 bg-white relative group'
+                className='w-32 flex-1 h-full bg-white relative group'
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
@@ -229,10 +290,10 @@ const App = () => {
                     <span className='text-xl text-[#0D0D0D99]  font-bold'>
                       {event.date}
                     </span>
-                    <p className='text-sm md:text:2xl text-black font-bold'>
+                    <p className='text-xl md:text:2xl text-black font-bold'>
                       {event.title}
                     </p>
-                    <p className='text-sm md:text:xl text-[#0D0D0D99] font-sm '>
+                    <p className='text-sm  md:text:xl text-[#0D0D0D99] font-light '>
                       {event.text}
                     </p>
                     <a
@@ -248,7 +309,7 @@ const App = () => {
                   <p className='absolute bottom-0 left-0 right-0 bg-white/80 text-black p-4'>
                     <span className='flex flex-col justify-center text-gray-400  gap-2'>
                       {event.date}
-                      <p className='text-lg font-small text-black'>
+                      <p className='text-sm  md:text:lg font-small text-black'>
                         {event.title}
                       </p>
                     </span>
@@ -264,11 +325,18 @@ const App = () => {
           <Gallery />
         </>
       )}
-      {sermonOpen &&   <SermonsNav
+      {sermonOpen && (
+        <SermonsNav
           selectedSermonTitle={selectedSermonTitle}
           setSelectedSermonTitle={setSelectedSermonTitle}
-        />}
-      {eventsOpen && <EventNav />}
+        />
+      )}
+      {eventsOpen && (
+        <EventNav
+          selectedEventTitle={SelectedEventTitle}
+          setSelectedEventTitle={setSelectedEventTitle}
+        />
+      )}
       {joinOpen && <JoinNav />}
       {galleryOpen && <Gallery />}
       {giveOpen && <Giving />}
@@ -277,17 +345,17 @@ const App = () => {
           <p>&#169;2025 RCCG StrongTower Stouffville</p>
         </div>
         <div className='flex gap-3'>
-        {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
-              (link) => (
-                <p
-                  key={link}
-                  onClick={() => handleLinkClick(link)}
-                  className={`px-4 py-1 capitalize cursor-pointer`}
-                >
-                  {link}
-                </p>
-              )
-            )}
+          {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
+            (link) => (
+              <p
+                key={link}
+                onClick={() => handleLinkClick(link)}
+                className={`px-4 py-1 capitalize cursor-pointer`}
+              >
+                {link}
+              </p>
+            )
+          )}
         </div>
       </div>
     </>
