@@ -7,7 +7,7 @@ const Sermons = () => {
     <div className='flex flex-col items-center justify-center gap-5  p-13'>
       <div className='flex gap-3 items-center'>
         <div className='w-28 bg-gray-400 h-0.5'></div>
-        <p className='text-gray-700'>Latest Sermons</p>
+        <p className='text-gray-700 text-sm md:text-lg'>Latest Sermons</p>
 
         <div className='w-28 bg-gray-400 h-0.5'></div>
       </div>

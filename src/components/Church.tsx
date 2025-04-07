@@ -8,7 +8,7 @@ const Church = () => {
     <div className="flex flex-col items-center justify-center gap-5  p-13">
         <div className="flex gap-3 items-center mb-5">
             <div className="w-28 bg-gray-400 h-0.5"></div>
-            <p className="text-gray-700">About The Church</p>
+            <p className="text-gray-700 text-sm md:text-lg">About The Church</p>
             <div className="w-28 bg-gray-400 h-0.5"></div>
         </div>
         <div className="flex mt-4 gap-7 flex-col md:flex-row md:gap-[50px]">

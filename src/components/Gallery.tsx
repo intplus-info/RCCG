@@ -8,7 +8,7 @@ const Gallery = () => {
     <div className='flex flex-col justify-center items-center gap-3 p-10'>
       <div className='flex gap-3 items-center'>
         <div className='w-28 bg-gray-400 h-0.5'></div>
-        <p className='text-gray-700'>Latest Gallery</p>
+        <p className='text-gray-700 '>Latest Gallery</p>
 
         <div className='w-28 bg-gray-400 h-0.5'></div>
       </div>

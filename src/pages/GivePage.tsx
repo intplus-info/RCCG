@@ -90,13 +90,54 @@ const GivePage = () => {
             </div>
           </div>
       </div>
-      <div className="flex flex-col text-center  gap-4 md:p-24">
-      <p className="text-[#00000099] text-2xl">Welcome to RCCG Strongtower Stouffville, a thriving Christian community rooted in faith, love, and the transformative power of God’s Word. At the heart of our mission is Jesus Christ, and we are passionate about building a strong, united community that reflects His love and grace. Together, we strive to create a space where lives are touched, destinies are redeemed, and dominion is restored</p>
-      <p className="text-[#00000099] text-2xl">Our vision goes beyond the walls of the church—we are committed to fostering a sense of belonging and purpose, where every individual feels valued and empowered. Through fellowship, worship, and the teaching of God’s Word, we aim to inspire positive change in our community and beyond. Here, you’ll find a family that supports, encourages, and walks alongside you in your spiritual journe</p>
-      <p className="text-[#00000099] text-2xl">As we grow together, our focus remains on preparing the Church for the glorious return of our Lord Jesus Christ. We envision a community where people from all nations and walks of life come together to lift His name in praise and worship.</p>
-      <p className="text-[#00000099] text-2xl">As we grow together, our focus remains on preparing the Church for the glorious return of our Lord Jesus Christ. We envision a community where people from all nations and walks of life come together to lift His name in praise and worship.</p>
-      <p className="text-[#00000099] text-2xl">As we grow together, our focus remains on preparing the Church for the glorious return of our Lord Jesus Christ. We envision a community where people from all nations and walks of life come together to lift His name in praise and worship.</p>
+      <div className="flex flex-col text-center  gap-4 p-6 md:p-20">
+      <p className="text-[#00000099] text-lg md:text-2xl">Welcome to RCCG Strongtower Stouffville, a thriving Christian community rooted in faith, love, and the transformative power of God’s Word. At the heart of our mission is Jesus Christ, and we are passionate about building a strong, united community that reflects His love and grace. Together, we strive to create a space where lives are touched, destinies are redeemed, and dominion is restored</p>
+      <p className="text-[#00000099] text-lg md:text-2xl">Our vision goes beyond the walls of the church—we are committed to fostering a sense of belonging and purpose, where every individual feels valued and empowered. Through fellowship, worship, and the teaching of God’s Word, we aim to inspire positive change in our community and beyond. Here, you’ll find a family that supports, encourages, and walks alongside you in your spiritual journe</p>
+      <p className="text-[#00000099] text-lg md:text-2xl">As we grow together, our focus remains on preparing the Church for the glorious return of our Lord Jesus Christ. We envision a community where people from all nations and walks of life come together to lift His name in praise and worship.</p>
+      <p className="text-[#00000099] text-lg md:text-2xl">As we grow together, our focus remains on preparing the Church for the glorious return of our Lord Jesus Christ. We envision a community where people from all nations and walks of life come together to lift His name in praise and worship.</p>
+      <p className="text-[#00000099] text-lg md:text-2xl">As we grow together, our focus remains on preparing the Church for the glorious return of our Lord Jesus Christ. We envision a community where people from all nations and walks of life come together to lift His name in praise and worship.</p>
+      
         </div>
+        <div className="max-w-[700px] mx-auto mt-10 bg-white p-6 rounded-lg shadow-md">
+  <h2 className="text-xl font-semibold text-[#666666] text-left mb-4">Select type of donation</h2>
+
+  {/* Dropdown for donation type */}
+  <label className="block mb-2 font-medium text-[#666666]">Type</label>
+  <select
+    className="w-full   p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-orange-500 text-[#666666]"
+  >
+    <option value="Offering">Offering</option>
+    <option  value="Tithe">Tithe</option>
+    <option value="Thanksgiving">Thanksgiving</option>
+    <option value="First Offering">First Offering</option>
+  </select>
+
+  {/* Amount input */}
+  <label className="block mb-2 font-medium text-[#666666]">Amount (CAD)</label>
+  <input
+    type="number"
+    min="5"
+    placeholder="5"
+    className="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
+  />
+
+  {/* Action buttons */}
+  <div className="flex justify-between">
+    <button
+      type="reset"
+      className="px-10 py-3 bg-white text-orange-500 rounded border border-orange-500  hover:opacity-60"
+    >
+      Clear
+    </button>
+    <button
+      type="submit"
+      className="px-10 py-3 bg-orange-500 text-white rounded hover:opacity-60"
+    >
+      Next
+    </button>
+  </div>
+</div>
+
       <Footer />
        </>
       )
