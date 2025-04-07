@@ -15,17 +15,20 @@ const Church = () => {
             <div className="flex flex-col text-left  gap-[12px]">
                 <img src={image9} alt="" />
                 <p className="text-xl text-black">Our Community</p>
-                <p className="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                <p className="text-gray-500 text-sm">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationr and strength of God needed for a fulfilled life.
+                We also through our community outreach, partnerships and engagements seek to help build a happier society.  our community outreach, partnerships and engagements seek to help build a happiersociety.   </p>
             </div>
             <div className="flex flex-col text-left gap-[12px]">
                 <img src={image10} alt="image" />
                 <p className="text-xl text-black">Church Mission</p>
-                <p className="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                <p className="text-gray-500 text-sm">RCCG Strong Tower,Stouffville is based absolutely on yue word of God - the BIBLE. We believe in the power inherent in Prayers, Worship and Fellowship. We strive to build individuals who are filled with the power and strength of God needed for a fulfilled life.
+                We also through our community outreach, partnerships and engagements seek to help build a happier society. </p>
             </div>
             <div className="flex flex-col text-left gap-[12px]">
                 <img src={image11} alt="image" />
                 <p className="text-xl text-black text-left">Participate With Us</p>
-                <p className="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                <p className="text-gray-500 text-sm">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationr and strength of God needed for a fulfilled life.
+                We also through our community outreach, partnerships and engagements seek to help build a happier society.  our community outreach, partnerships and engagements seek to help build a happiersociety.   </p>
             </div>
 
         </div>

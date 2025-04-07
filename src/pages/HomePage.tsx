@@ -19,6 +19,7 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
+
 import Header from "../components/Header";
 import Footer from "@/components/footer";
 
@@ -28,6 +29,8 @@ const Homepage = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [previousSlide, setPreviousSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const backgroundImages = [image1, image2];
 
   const events = [
@@ -62,30 +65,69 @@ const Homepage = () => {
     }, 10000);
 
     const handleSelect = () => {
+      setPreviousSlide(currentSlide);
+      setIsTransitioning(true);
       setCurrentSlide(api.selectedScrollSnap());
+      
+      // Reset transition state after animation completes
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 1000);
     };
+    
     api.on("select", handleSelect);
 
     return () => {
       clearInterval(interval);
       api.off("select", handleSelect);
     };
-  }, [api]);
+  }, [api, currentSlide]);
+
+  // Add CSS using useEffect to inject the animation styles
+  useEffect(() => {
+    // Create style element
+    const styleEl = document.createElement('style');
+    styleEl.textContent = `
+      @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+      }
+    `;
+    // Append to document head
+    document.head.appendChild(styleEl);
+    
+    // Clean up on unmount
+    return () => {
+      document.head.removeChild(styleEl);
+    };
+  }, []);
 
   return (
     <>
     <div
-      className="flex flex-col"
+      className="flex flex-col relative bg-cover bg-center"
       style={{
         backgroundImage: `url(${backgroundImages[currentSlide]})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        transition: "background-image",
+        transition: "background-image 1s ease-in-out",
       }}
     >
+      {/* Add a fade overlay for smoother transitions */}
+      {isTransitioning && (
+        <div
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{
+            backgroundImage: `url(${backgroundImages[previousSlide]})`,
+            opacity: 0,
+            animation: "fadeOut 1s ease-in-out",
+          }}
+        />
+      )}
+      
       <Header />
 
-      <div className="flex items-center justify-between p-4 w-full">
+      <div className="flex items-center justify-between p-4 w-full relative z-10">
         <div className="flex items-center">
           <img src={logo} alt="logo" className=" w-33" />
         </div>
@@ -120,21 +162,21 @@ const Homepage = () => {
   <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50 min-h-screen">
     <button
       onClick={() => setIsMobileMenuOpen(false)}
-      className="absolute top-2 right-2 text-white text-2xl sm:text-3xl md:text-4xl focus:outline-none"
+      className="absolute top-4 right-4 text-white text-2xl focus:outline-none"
       aria-label="Close menu"
     >
       ×
     </button>
 
-    <nav className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 w-11/12 max-w-xs sm:max-w-md px-2 sm:px-4">
+    <nav className="flex flex-col items-center gap-3 w-full max-w-xs px-4">
       {["home", "join", "sermons", "Events", "Give", "Gallery"].map((link) => (
         <NavLink
           key={link}
           to={`/${link === "home" ? "" : link.toLowerCase()}`}
           onClick={() => setIsMobileMenuOpen(false)}
           className={({ isActive }) =>
-            `text-white text-base sm:text-xl md:text-2xl py-1 sm:py-2 cursor-pointer capitalize transition-all duration-200 ${
-              isActive ? "underline" : "hover:text-gray-200"
+            `text-white text-lg py-2 w-full text-center border-b border-white/20 cursor-pointer capitalize transition-all duration-200 ${
+              isActive ? "font-bold" : "hover:bg-white/10"
             }`
           }
         >
@@ -149,7 +191,7 @@ const Homepage = () => {
         <Carousel
           setApi={setApi}
           opts={{ align: "start", loop: true }}
-          className="relative h-[732px]"
+          className="relative h-[732px] ease-in-out"
         >
           <CarouselContent className="h-full">
             <CarouselItem className="h-full">
@@ -207,18 +249,23 @@ const Homepage = () => {
       {events.map((event, index) => (
   <div
     key={index}
-    className="w-32 flex-1 h-full bg-white relative group"
+    className="w-32 flex-1 h-full bg-white relative group overflow-hidden"
     onMouseEnter={() => setHoveredIndex(index)}
     onMouseLeave={() => setHoveredIndex(null)}
   >
     <img
       src={event.image}
       alt="event"
-      className="w-full h-full object-cover"
+      className="w-full h-full object-cover transition-transform duration-700 ease-in-out"
+      style={{
+        transform: hoveredIndex === index ? 'scale(1.1)' : 'scale(1)'
+      }}
     />
     <div
-      className={`absolute inset-0 bg-white flex flex-col justify-center text-white gap-4 p-4  duration-[900ms] ${
-        hoveredIndex === index ? "opacity-70" : "opacity-0"
+      className={`absolute inset-0 bg-white flex flex-col justify-center text-white gap-4 p-4 transition-all duration-700 ease-in-out ${
+        hoveredIndex === index 
+          ? "opacity-80 transform translate-y-0" 
+          : "opacity-0 transform translate-y-full"
       }`}
     >
       <span className="text-xl text-[#0D0D0D99] font-bold">
@@ -232,14 +279,14 @@ const Homepage = () => {
       </p>
       <NavLink
         to="/events"
-        className="text-sm underline cursor-pointer text-[#0D0D0D99]"
+        className="text-sm underline cursor-pointer text-[#0D0D0D99] hover:text-black transition-colors duration-300"
       >
         Learn More....
       </NavLink>
     </div>
-    <p
-      className={`absolute bottom-0 left-0 right-0 bg-white/80 text-black p-4 transition-opacity duration-[800ms] ${
-        hoveredIndex === index ? "opacity-0" : "opacity-100"
+    <div
+      className={`absolute bottom-0 left-0 right-0 bg-white/80 text-black p-4 transition-all duration-700 ease-in-out ${
+        hoveredIndex === index ? "transform translate-y-full" : "transform translate-y-0"
       }`}
     >
       <span className="flex flex-col justify-center text-gray-400 gap-2">
@@ -248,7 +295,7 @@ const Homepage = () => {
           {event.title}
         </span>
       </span>
-    </p>
+    </div>
   </div>
 ))}
     </div>

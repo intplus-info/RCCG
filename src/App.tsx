@@ -6,6 +6,7 @@ import SermonPage from "./pages/SermonPage";
 import EventPage from "./pages/EventPage";
 import GivePage from "./pages/GivePage";
 import Gallery from "./pages/Gallery";
+import ContactForm from "./pages/FormPage";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Route path="/events" element={<EventPage />} />
       <Route path="/give" element={<GivePage />} />
       <Route path="/gallery" element={<Gallery />} />
+      <Route path="/form" element={<ContactForm />} />
     </Routes>
   );
 };

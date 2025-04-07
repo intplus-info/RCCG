@@ -1,7 +1,7 @@
 import image from "../assets/Image.svg";
 import image2 from "../assets/im88.svg";
 import Header from "../components/Header"
-import { NavLink } from "react-router-dom"; // Replace Link with NavLink
+import { Link, NavLink } from "react-router-dom"; // Replace Link with NavLink
 import { useState } from "react";
 import logo from "../assets/logo.svg";
 import Footer from "@/components/footer";
@@ -108,48 +108,39 @@ const JoinPage = () => {
         <img src={image} className="w-full p-4" alt="image" />
         <div className="flex flex-col">
           <p className="md:text-xl font-bold text-black py-3">WHY JOIN US?</p>
-          <ul className="p-2">
+          <ul className="p-2 text-lg">
             <li className="text-[#00000099] ml-4 py-2">
               A Warm Community: Experience the love and support of a caring,
               diverse family united by faith. Life-Changing Worship: Encounter
               God’s
             </li>
             <li className="text-[#00000099] ml-4 py-2">
-              A Warm Community: Experience the love and support of a caring,
-              diverse family united by faith. Life-Changing Worship: Encounter
-              God’s
+            Life-Changing Worship: Encounter God’s presence through heartfelt worship and powerful teachings rooted in the Word of God.
             </li>
             <li className="text-[#00000099] ml-4 py-2">
-              the Word of God. Purpose and Growth: Discover your God-given
-              purpose and grow spiritually through our programs, Bible studies,
-              and fellowship opportunities. Impactful Outreach: Be part of a
-              community
+            Purpose and Growth: Discover your God-given purpose and grow spiritually through our programs, Bible studies, and fellowship opportunities.
+            </li>
+            <li className="text-[#00000099] ml-4 py-2">
+            Impactful Outreach: Be part of a community that makes a difference, both locally and globally, by sharing hope and transforming lives.
             </li>
           </ul>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-center">
           <p className="md:text-xl font-bold text-black py-3">
             WHAT TO EXPECT
           </p>
           <p className="md:text-xl text-[#00000099]">
             When you join us, you’ll find a place where:
           </p>
-          <ul className="p-2">
+          <ul className="p-2 text-2xl">
             <li className="text-[#00000099] ml-4 py-2">
-              A Warm Community: Experience the love and support of a caring,
-              diverse family united by faith. Life-Changing Worship: Encounter
-              God’s
+            Destinies are Redeemed: No matter your past, there is hope and a future in Christ.
             </li>
             <li className="text-[#00000099] ml-4 py-2">
-              A Warm Community: Experience the love and support of a caring,
-              diverse family united by faith. Life-Changing Worship: Encounter
-              God’s
+             Dominion is Restored: Through faith, you can walk in the authority and victory God has prepared for you.
             </li>
             <li className="text-[#00000099] ml-4 py-2">
-              the Word of God. Purpose and Growth: Discover your God-given
-              purpose and grow spiritually through our programs, Bible studies,
-              and fellowship opportunities. Impactful Outreach: Be part of a
-              community
+            You Belong: From the moment you walk in, you’ll feel at home.
             </li>
           </ul>
         </div>
@@ -158,24 +149,20 @@ const JoinPage = () => {
             HOW TO GET INVOLVED
           </p>
           <div className="px-6 border-l-2 border-[#FF7F00] flex flex-col gap-3">
-            <p className="text-[#00000099]">
-              <span className="text-black font-bold">Sunday Services :</span> A
-              Warm Community: Experience the love and support of a caring,
-              diverse family united by faith. Life-Changing Worship: Encounter
+            <p className="text-[#00000099] text-lg">
+              <span className="text-black font-bold">Sunday Services :</span>Join us every Sunday for uplifting worship, inspiring messages, and a time of fellowship.
+            </p>
+            <p className="text-[#00000099] text-lg">
+              <span className="text-black font-bold">MidWeek Programs :</span>  Dive deeper into the Word and connect with others through our midweek Bible studies and prayer meetings.
               God’s
             </p>
-            <p className="text-[#00000099]">
-              <span className="text-black font-bold">Sunday Services :</span> A
-              Warm Community: Experience the love and support of a caring,
-              diverse family united by faith. Life-Changing Worship: Encounter
-              God’s
+            <p className="text-[#00000099] text-lg">
+              <span className="text-black font-bold">Volunteer Oppurtunities :</span>{" "}
+              Use your gifts and talents to serve in our various ministries and outreach programs.
             </p>
-            <p className="text-[#00000099]">
-              <span className="text-black font-bold">Sunday Services :</span>{" "}
-              the Word of God. Purpose and Growth: Discover your God-given
-              purpose and grow spiritually through our programs, Bible studies,
-              and fellowship opportunities. Impactful Outreach: Be part of a
-              community
+        
+            <p className="text-[#00000099] text-lg">
+              <span className="text-black font-bold">Community Events :</span> Be part of our special events, workshops, and activities designed to strengthen relationships and build community.
             </p>
           </div>
         </div>
@@ -184,10 +171,7 @@ const JoinPage = () => {
             PLAN YOUR VISIT
           </h1>
           <p className="text-[#00000099]">
-            We can’t wait to meet you! If you’re visiting for the first time,
-            we’ll make sure you feel right at home. Let us know you’re coming by
-            filling out our Connect Form, and we’ll be ready to welcome you with
-            open arms.
+          We can’t wait to meet you! If you’re visiting for the first time, we’ll make sure you feel right at home. Let us know you’re coming by filling out our <Link to="/form"><span className="underline text-orange-500"> Connect Form</span></Link> , and we’ll be ready to welcome you with open arms.
           </p>
         </div>
 
@@ -221,7 +205,7 @@ const JoinPage = () => {
           <p className="text-[#00000099]">
             We can’t wait to meet you! If you’re visiting for the first time,
             we’ll make sure you feel right at home. Let us know you’re coming by
-            filling out our Connect Form, and we’ll be ready to welcome you with
+            filling out our <Link to="/form"><span className="underline text-orange-500"> Connect Form</span></Link>, and we’ll be ready to welcome you with
             open arms.
           </p>
           <p className="text-[#00000099]">We can’t wait to see you!</p>

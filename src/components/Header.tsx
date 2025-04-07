@@ -31,7 +31,7 @@ const Header = () => {
         </a>
         <div className='h-4 w-px bg-gray-600'></div>
         <a
-          href='https://www.facebook.com'
+          href='https://www.facebook.com/p/RCCG-StrongTower-Stouffville-100068948463674/'
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -55,7 +55,7 @@ const Header = () => {
         <div className='h-4 w-px bg-gray-600'></div>
 
         <a
-          href='https://www.youtube.com'
+          href='https://www.youtube.com/@rccgstrongtowerstouffville3164'
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -67,7 +67,7 @@ const Header = () => {
         <div className='h-4 w-px bg-gray-600'></div>
 
         <a
-          href='https://www.instagram.com'
+          href='https://www.instagram.com/rccg_strongtower/'
           target='_blank'
           rel='noopener noreferrer'
         >

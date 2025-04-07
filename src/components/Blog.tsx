@@ -14,16 +14,16 @@ const Blog = () => {
         </p>
       </div>
       <div className='flex flex-col  gap-2 p-3  bg-[#E4E4E4]'>
-        <p className='bg-orange-400 w-42  my-4 text-white p-6'>11 November</p>
-        <h1 className='text-xl text-black'>Crouch Goes Home To Jesus</h1>
+        <p className='bg-orange-400 w-42  my-4 text-white p-6'>10 November</p>
+        <h1 className='text-xl text-black'>Our Most Christian Congress?</h1>
         <p className='text-gray-500 text-sm'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua...
         </p>
       </div>
       <div className='flex flex-col  gap-2 p-3  bg-[#E4E4E4]'>
-        <p className='bg-orange-400 w-42  my-4 text-white p-6'>11 November</p>
-        <h1 className='text-xl text-black'>Crouch Goes Home To Jesus</h1>
+        <p className='bg-orange-400 w-42  my-4 text-white p-6'>9 November</p>
+        <h1 className='text-xl text-black'>Lin: ‘God Is Challenging Me!’</h1>
         <p className='text-gray-500 text-sm'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua...
