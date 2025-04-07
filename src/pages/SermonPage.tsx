@@ -10,6 +10,9 @@ import { NavLink } from "react-router-dom";
 import Header from "@/components/Header";
 import logo from "../assets/logo.svg";
 import image2 from "../assets/im88.svg";
+
+import image4 from "../assets/cuts.svg";
+import image5 from "../assets/image 11.png";
 import Footer from "@/components/footer";
 
 // Define the type for a sermon
@@ -50,7 +53,7 @@ const sermonsData: Sermon[] = [
 
   },
   {
-    image: thirdimg,
+    image: image4,
     title: "Transforming Live, Restoring Hope",
     date: "August 8, 2025",
     author: "Admin",
@@ -59,7 +62,7 @@ const sermonsData: Sermon[] = [
 
   },
   {
-    image: thirdimg,
+    image: image5,
     title: "Put Your Faith Into Action",
     date: "August 8, 2025",
     author: "Admin",
@@ -147,39 +150,37 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
         </div>
 
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50 min-h-screen">
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="absolute top-4 right-4 text-white text-3xl md:text-4xl focus:outline-none"
-              aria-label="Close menu"
-            >
-              ×
-            </button>
+  <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50 min-h-screen">
+    <button
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="absolute top-4 right-4 text-white text-2xl focus:outline-none"
+      aria-label="Close menu"
+    >
+      ×
+    </button>
 
-            <nav className="flex flex-col items-center gap-6 md:gap-8 w-full max-w-md px-4">
-              {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
-                (link) => (
-                  <NavLink
-                    key={link}
-                    to={`/${link === "home" ? "" : link.toLowerCase()}`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={({ isActive }) =>
-                      `text-white text-xl md:text-2xl py-2 cursor-pointer capitalize transition-all duration-200 ${
-                        isActive ? "underline" : "hover:text-gray-200"
-                      }`
-                    }
-                  >
-                    {link}
-                  </NavLink>
-                )
-              )}
-            </nav>
-          </div>
-        )}
+    <nav className="flex flex-col items-center gap-3 w-full max-w-xs px-4">
+      {["home", "join", "sermons", "Events", "Give", "Gallery"].map((link) => (
+        <NavLink
+          key={link}
+          to={`/${link === "home" ? "" : link.toLowerCase()}`}
+          onClick={() => setIsMobileMenuOpen(false)}
+          className={({ isActive }) =>
+            `text-white text-lg py-2 w-full text-center border-b border-white/20 cursor-pointer capitalize transition-all duration-200 ${
+              isActive ? "font-bold" : "hover:bg-white/10"
+            }`
+          }
+        >
+          {link}
+        </NavLink>
+      ))}
+    </nav>
+  </div>
+)}
           <div>
             <div className='flex flex-col gap-4 justify-center items-center p-6'>
               <hr className='w-full h-0,5 text-white opacity-50' />
-              <h1 className='text-4xl capitalize text-white'>
+              <h1 className='text-xl md:text-4xl capitalize text-white'>
                 {" "}
                 {SelectedSermonTitle || "Our Sermons"}{" "}
               </h1>
@@ -205,27 +206,27 @@ const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
             <img
               src={sermonsData[openSermon].image}
               alt="sermon"
-              className="w-[586.8896484375px] h-[390.54840087890625px]"
+              className="w-[290px] md:w-[586.8896484375px] h-[250px] md:h-[390.54840087890625px]"
             />
             <div className="flex flex-col items-center gap-4">
-              <div className="w-[378px] text-sm flex gap-3 text-white h-fit p-4 bg-[#FF7F00]">
+              <div className="w-[200px] md:w-[378px] text-sm flex gap-3 text-white h-fit p-4 bg-[#FF7F00]">
                 <img src={camera} alt="" className="w-4 h-4 mt-1" />
                 Video Streaming
               </div>
-              <div className="w-[378px] flex gap-3 text-sm text-white h-fit p-4 bg-[#FF7F00]">
+              <div className="w-[200px] md:w-[378px] flex gap-3 text-sm text-white h-fit p-4 bg-[#FF7F00]">
                 <img src={Audio} alt="" className="w-4 h-4 mt-1" />
                 <a href={sermonsData[openSermon].link} target="_blank" rel="noopener noreferrer">
                 Audio Streaming
                 </a>
               </div>
-              <div className="w-[378px] flex gap-3 text-sm text-white h-fit p-4 bg-[#FF7F00]">
+              <div className="w-[200px] md:w-[378px] flex gap-3 text-sm text-white h-fit p-4 bg-[#FF7F00]">
                 <img src={pdf} alt="" className="w-4 h-4 mt-1" />
                 PDF Reader
               </div>
             </div>
           </div>
           <div className="flex flex-col items-center justify-center gap-5 py-5 md:px-21 mb-12">
-            <p className="text-[#0D0D0D99] font-normal text-lg md:text-xl">{sermonsData[openSermon].content}</p>
+            <p className="text-[#0D0D0D99] font-normal text-sm md:text-xl">{sermonsData[openSermon].content}</p>
           </div>
         </div>
       )}

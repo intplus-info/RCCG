@@ -110,7 +110,7 @@ const Homepage = () => {
         backgroundImage: `url(${backgroundImages[currentSlide]})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        transition: "background-image 1s ease-in-out",
+        transition: "background-image 0.5s ease-in-out",
       }}
     >
       {/* Add a fade overlay for smoother transitions */}
@@ -120,7 +120,7 @@ const Homepage = () => {
           style={{
             backgroundImage: `url(${backgroundImages[previousSlide]})`,
             opacity: 0,
-            animation: "fadeOut 1s ease-in-out",
+            animation: "fadeOut 0.5s ease-in-out",
           }}
         />
       )}
@@ -197,11 +197,11 @@ const Homepage = () => {
             <CarouselItem className="h-full">
               <div className="flex items-center justify-center mt-64 gap-6 h-full text-white">
                 <div className="text-center">
-                  <h1 className="text-4xl font-normal mb-4">Welcome to</h1>
-                  <p className="text-5xl font-bold mb-5">
+                  <h1 className="text-lg md:text-4xl font-normal mb-4">Welcome to</h1>
+                  <p className="text-sm md:text-5xl font-bold mb-5">
                     RCCG StrongTower Stouffville
                   </p>
-                  <p className="text-xl md:text-2xl mb-8">
+                  <p className="text-lg  md:text-2xl mb-8">
                     A Place of Worship, Growth, and Community
                   </p>
                   <div className="space-x-4">
@@ -222,10 +222,10 @@ const Homepage = () => {
             <CarouselItem className="h-full">
               <div className="flex items-center justify-center mt-74 gap-6 h-full text-white">
                 <div className="text-center">
-                  <h1 className="text-4xl md:text-4xl font-bold mb-4">
+                  <h1 className="text-sm md:text-4xl font-bold mb-4">
                     Transforming lives
                   </h1>
-                  <p className="text-6xl font-bold md:text-7xl mb-8">
+                  <p className="text-xl font-bold md:text-7xl mb-8">
                     Restoring Hope
                   </p>
                 </div>
