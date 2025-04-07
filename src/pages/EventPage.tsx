@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import logo from "../assets/logo.svg";
 import image2 from "../assets/im88.svg";
 import Footer from "@/components/footer";
+import image5 from "../assets/image5.svg";
+
 interface Event {
   image: string;
   title: string;
@@ -27,7 +29,7 @@ interface EventsProps {
 
 const EventContent: Event[] = [
   {
-    image: image6,
+    image: image5,
     title: "Sunday Services (Every Sunday)",
     day: "Every",
     month: "Sunday",
@@ -60,7 +62,7 @@ const EventContent: Event[] = [
     email: " welcome@rccgstouffville.org",
   },
   {
-    image: image6,
+    image: image5,
     title: "ICUTL- I Cry Unto The Lord ",
     day: "Every",
     month: "last saturday",
@@ -89,34 +91,7 @@ const EventContent: Event[] = [
     phone: "+1 647-695 5700",
     email: " welcome@rccgstouffville.org",
   },
-  {
-    image: image6,
-    title: " Faith Clinic ",
-    day: "Every",
-    month: "3rd Thursday",
-    time: "7:00pm EST",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    start: "sep 31 @7:00 EST",
-    end: "August 31 @:00 EST",
-    venue: "Ballantrae Community Center 5592 Aurora Rd Whitchurch Stouffville.",
-    phone: "+1 647-695 5700",
-    email: " welcome@rccgstouffville.org",
-  },
-  {
-    image: image6,
-    title: "Sunday School holds",
-    day: "Every",
-    month: "Sunday",
-    time: "10:00am EST",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    start: "sep 31 @8:00 EST",
-    end: "August 31 @8:00 EST",
-    venue: "Ballantrae Community Center 5592 Aurora Rd Whitchurch Stouffville.",
-    phone: "+1 647-695 5700",
-    email: " welcome@rccgstouffville.org",
-  },
+
 ];
 
 const Events = ({ events, onClick }: EventsProps) => {
@@ -126,15 +101,15 @@ const Events = ({ events, onClick }: EventsProps) => {
       onClick={onClick}
     >
       <div className='flex flex-col'>
-        <div className='flex w-[440.350px]'>
+        <div className='flex w-[400.350px] md-w-[440.350px]'>
           <img src={events.image} alt='image' className='w-[274.5px]' />
           <span className='flex flex-col bg-[#FF7F00] w-[165px] items-center justify-center'>
             <p className='text-3xl font-bold text-white'>{events.day}</p>
-            <p className='text-3xl font-light text-white'>{events.month}</p>
+            <p className='text-lg font-light text-white'>{events.month}</p>
             <p className='text-xl text-white'>{events.time}</p>
           </span>
         </div>
-        <div className='flex flex-col w-[440.350px] justify-center bg-[#F2F2F2] p-4'>
+        <div className='flex flex-col w-[400.350px] justify-center bg-[#F2F2F2] p-4'>
           <p className='text-black font-normal text-xl'>{events.title}</p>
           <p className='text-sm text-gray-500'>{events.content}</p>
         </div>
@@ -230,7 +205,7 @@ const EventPage = () => {
           <div>
             <div className='flex flex-col gap-4 justify-center items-center p-6'>
               <hr className='w-full h-0,5 text-white opacity-50' />
-              <h1 className='text-4xl capitalize text-white'>
+              <h1 className='text-xl md:text-4xl capitalize text-white'>
                 {" "}
                 {SelectedEventTitle || "Our Sermons"}{" "}
               </h1>
