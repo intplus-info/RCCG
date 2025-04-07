@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ContactFormProps {
   onSubmit?: (formData: FormData) => void;
@@ -69,7 +70,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       <div className="mb-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold px-19">We're Excited to Meet You</h2>
-          <button className="text-blue-500 text-xl">&times;</button>
+          <Link to="/join">
+          <button className="text-blue-500 text-xl cursor-pointer">&times;</button>
+          </Link>
         </div>
         
         <p className="text-sm text-[#0D0D0D99] mb-4">
