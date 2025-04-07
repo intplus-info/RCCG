@@ -7,6 +7,7 @@ import EventPage from "./pages/EventPage";
 import GivePage from "./pages/GivePage";
 import Gallery from "./pages/Gallery";
 import ContactForm from "./pages/FormPage";
+import PaymentForm from "./pages/BankPage";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Route path="/give" element={<GivePage />} />
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/form" element={<ContactForm />} />
+      <Route path="/pay" element={<PaymentForm />} />
     </Routes>
   );
 };

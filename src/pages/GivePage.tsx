@@ -1,6 +1,6 @@
 import image2 from "../assets/im88.svg";
 import Header from "../components/Header"
-import { NavLink } from "react-router-dom"; // Replace Link with NavLink
+import { Link, NavLink } from "react-router-dom"; // Replace Link with NavLink
 import { useState } from "react";
 import logo from "../assets/logo.svg";
 import Footer from "@/components/footer";
@@ -129,12 +129,14 @@ const GivePage = () => {
     >
       Clear
     </button>
+    <Link to="/pay">
     <button
       type="submit"
-      className="px-10 py-3 bg-orange-500 text-white rounded hover:opacity-60"
+      className="px-10 py-3 bg-orange-500 text-white rounded hover:opacity-60 cursor-pointer"
     >
       Next
     </button>
+    </Link>
   </div>
 </div>
 

@@ -207,7 +207,7 @@ const EventPage = () => {
               <hr className='w-full h-0,5 text-white opacity-50' />
               <h1 className='text-xl md:text-4xl capitalize text-white'>
                 {" "}
-                {SelectedEventTitle || "Our Sermons"}{" "}
+                {SelectedEventTitle || "Our Events"}{" "}
               </h1>
               <hr className='w-full h-0,5 text-white opacity-50' />
             </div>
@@ -226,37 +226,44 @@ const EventPage = () => {
           </div>
         </div>
       ) : (
-        <section className='flex flex-col md:flex-row  justify-center  min-h-[70vh] gap-4 p-8'>
-          <div className='max-w-2xl w-full  p-6 '>
-            <img
-              src={selectedEvent?.image}
-              alt='event'
-              className='w-full h-auto rounded-md mb-4'
-            />
-            <p className='text-[#0D0D0D99] '>{selectedEvent?.contents}</p>
+        <section className='flex flex-col md:flex-row justify-center gap-6 p-6'>
+        <div className='max-w-2xl w-full'>
+          <img
+            src={selectedEvent?.image}
+            alt='event'
+            className='w-full h-auto rounded-md mb-4'
+          />
+          <p className='text-[#0D0D0D99] mb-4'>{selectedEvent?.contents}</p>
 
-            <div className='text-sm text-gray-600 space-y-2 flex flex-col justify-center gap-6 p-8'>
-              <div className='flex gap-8'>
-                <p className="flex flex-col text-[#0D0D0DCC]">
-                  <span >Start:</span> {selectedEvent?.start}
-                </p>
-                <p className="flex flex-col text-[#0D0D0DCC]">
-                  <span >End:</span> {selectedEvent?.end}
-                </p>
+          <div className='text-sm text-gray-700 space-y-4'>
+            <div className='flex flex-col md:flex-row gap-6'>
+              <div>
+                <p className='font-medium'>Start:</p>
+                <p>{selectedEvent?.start}</p>
               </div>
+              <div>
+                <p className='font-medium'>End:</p>
+                <p>{selectedEvent?.end}</p>
+              </div>
+            </div>
 
-              <p className="flex flex-col text-[#0D0D0DCC]">
-                <span >Venue:</span> {selectedEvent?.venue}
-              </p>
-              <p className="flex flex-col text-[#0D0D0DCC]">
-                <span>Phone:</span> {selectedEvent?.phone}
-              </p>
-              <p className="flex flex-col text-[#0D0D0DCC]">
-                <span>Email:</span> {selectedEvent?.email}
-              </p>
+            <div>
+              <p className='font-medium'>Venue:</p>
+              <p>{selectedEvent?.venue}</p>
+            </div>
+
+            <div>
+              <p className='font-medium'>Phone:</p>
+              <p>{selectedEvent?.phone}</p>
+            </div>
+
+            <div>
+              <p className='font-medium'>Email:</p>
+              <p>{selectedEvent?.email}</p>
             </div>
           </div>
-          <div className="mt-3 " >
+        </div>
+        <div className="mt-3 " >
             <p className="text-lg mb-3">other Events</p>
             <div className="flex cursor-pointer "  onClick={() => setEventOpen(null)}>
               <div className="flex flex-col justify-center items-center w-[71px]">
@@ -295,11 +302,12 @@ const EventPage = () => {
 
           
           </div>
-        </section>
-      )}
-     <Footer />
-    </section>
-  );
+      </section>
+    )}
+
+    <Footer />
+  </section>
+);
 };
 
 export default EventPage;
