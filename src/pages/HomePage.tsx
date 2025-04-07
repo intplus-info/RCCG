@@ -87,7 +87,7 @@ const Homepage = () => {
 
       <div className="flex items-center justify-between p-4 w-full">
         <div className="flex items-center">
-          <img src={logo} alt="logo" className="hidden md:block w-33" />
+          <img src={logo} alt="logo" className=" w-33" />
         </div>
 
         <div className="hidden md:flex gap-4 text-white text-sm capitalize cursor-pointer">
@@ -117,35 +117,33 @@ const Homepage = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50 min-h-screen">
-          <button
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="absolute top-4 right-4 text-white text-3xl md:text-4xl focus:outline-none"
-            aria-label="Close menu"
-          >
-            ×
-          </button>
+  <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50 min-h-screen">
+    <button
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="absolute top-2 right-2 text-white text-2xl sm:text-3xl md:text-4xl focus:outline-none"
+      aria-label="Close menu"
+    >
+      ×
+    </button>
 
-          <nav className="flex flex-col items-center gap-6 md:gap-8 w-full max-w-md px-4">
-            {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
-              (link) => (
-                <NavLink
-                  key={link}
-                  to={`/${link === "home" ? "" : link.toLowerCase()}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `text-white text-xl md:text-2xl py-2 cursor-pointer capitalize transition-all duration-200 ${
-                      isActive ? "underline" : "hover:text-gray-200"
-                    }`
-                  }
-                >
-                  {link}
-                </NavLink>
-              )
-            )}
-          </nav>
-        </div>
-      )}
+    <nav className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 w-11/12 max-w-xs sm:max-w-md px-2 sm:px-4">
+      {["home", "join", "sermons", "Events", "Give", "Gallery"].map((link) => (
+        <NavLink
+          key={link}
+          to={`/${link === "home" ? "" : link.toLowerCase()}`}
+          onClick={() => setIsMobileMenuOpen(false)}
+          className={({ isActive }) =>
+            `text-white text-base sm:text-xl md:text-2xl py-1 sm:py-2 cursor-pointer capitalize transition-all duration-200 ${
+              isActive ? "underline" : "hover:text-gray-200"
+            }`
+          }
+        >
+          {link}
+        </NavLink>
+      ))}
+    </nav>
+  </div>
+)}
 
       <main className="flex-grow relative h-[712px]">
         <Carousel
@@ -219,7 +217,7 @@ const Homepage = () => {
       className="w-full h-full object-cover"
     />
     <div
-      className={`absolute inset-0 bg-white flex flex-col justify-center text-white gap-4 p-4 transition-opacity duration-[2000ms] ${
+      className={`absolute inset-0 bg-white flex flex-col justify-center text-white gap-4 p-4  duration-[900ms] ${
         hoveredIndex === index ? "opacity-70" : "opacity-0"
       }`}
     >
@@ -240,7 +238,7 @@ const Homepage = () => {
       </NavLink>
     </div>
     <p
-      className={`absolute bottom-0 left-0 right-0 bg-white/80 text-black p-4 transition-opacity duration-[3000ms] ${
+      className={`absolute bottom-0 left-0 right-0 bg-white/80 text-black p-4 transition-opacity duration-[800ms] ${
         hoveredIndex === index ? "opacity-0" : "opacity-100"
       }`}
     >
