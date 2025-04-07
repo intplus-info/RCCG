@@ -1,6 +1,10 @@
 import { useState } from "react";
 import image6 from "../assets/image6.svg";
-
+import { NavLink } from "react-router-dom";
+import Header from "@/components/Header";
+import logo from "../assets/logo.svg";
+import image2 from "../assets/im88.svg";
+import Footer from "@/components/footer";
 interface Event {
   image: string;
   title: string;
@@ -24,66 +28,94 @@ interface EventsProps {
 const EventContent: Event[] = [
   {
     image: image6,
-    title: "Relationship with God",
-    day: "32",
-    month: "May",
-    time: "8:00 EST",
+    title: "Sunday Services (Every Sunday)",
+    day: "Every",
+    month: "Sunday",
+    time: "10:00 EST",
 
     content:
       "Hi Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis ligula pellentesque nisi tristique porta. Vestibulum eget nisi est. Vivamus pharetra mattis ornare. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc eget nisl vel nisl pellentesque semper sed quis tellus. Integer euismod consequat ipsum eget congue. Aliquam sit amet ipsum ornare, aliquam arcu eu, eleifend ante. Vestibulum iaculis finibus quam, quis vestibulum ligula blandit ut. Suspendisse sit amet dolor vitae lectus posuere vestibulum. Fusce a est dui.",
-    start: "August 31 @8:00 EST",
-    end: "August 31 @8:00 EST",
-    venue: "5592 Aurora Rd, Whitchurch-Stouffville, ON, Canada",
-    phone: "+1 825 806 9862",
-    email: "info@StrongTowerStouffville.com",
+    start: "August 31 @10:00 :00 EST",
+    end: "August 31 @10:00 :00 EST",
+    venue: "Ballantrae Community Center 5592 Aurora Rd Whitchurch Stouffville.",
+    phone: "+1 647-695 5700",
+    email: " welcome@rccgstouffville.org",
   },
   {
     image: image6,
-    title: "Relationship with us",
-    day: "30",
-    month: "May",
+    title: "Morning Mercy Prayer meeting ",
+    day: "Every",
+    month: "Monday",
     time: "8:00 EST",
+    contents:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis ligula pellentesque nisi tristique porta. Vestibulum eget nisi est. Vivamus pharetra mattis ornare. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc eget nisl vel nisl pellentesque semper sed quis tellus. Integer euismod consequat ipsum eget congue. Aliquam sit amet ipsum ornare, aliquam arcu eu, eleifend ante. Vestibulum iaculis finibus quam, quis vestibulum ligula blandit ut. Suspendisse sit amet dolor vitae lectus posuere vestibulum. Fusce a est dui.",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    start: " Mondays, Wednesdays, and Fridays  5:30am EST",
+    end: " Mondays, Wednesdays, and Fridays  6:00am @8:00 EST",
+    venue: "Ballantrae Community Center 5592 Aurora Rd Whitchurch Stouffville.",
+    phone: "+1 647-695 5700",
+    email: " welcome@rccgstouffville.org",
+  },
+  {
+    image: image6,
+    title: "ICUTL- I Cry Unto The Lord ",
+    day: "Every",
+    month: "last saturday",
+    time: "7:00am EST",
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis ligula pellentesque nisi tristique porta. Vestibulum eget nisi est. Vivamus pharetra mattis ornare. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc eget nisl vel nisl pellentesque semper sed quis tellus. Integer euismod consequat ipsum eget congue. Aliquam sit amet ipsum ornare, aliquam arcu eu, eleifend ante. Vestibulum iaculis finibus quam, quis vestibulum ligula blandit ut. Suspendisse sit amet dolor vitae lectus posuere vestibulum. Fusce a est dui.",
     content:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     start: "August 31 @8:00 EST",
     end: "August 31 @8:00 EST",
-    venue: "5592 Aurora Rd, Whitchurch-Stouffville, ON, Canada",
-    phone: "+1 825 806 9862",
-    email: "info@StrongTowerStouffville.com",
+    venue: "Ballantrae Community Center 5592 Aurora Rd Whitchurch Stouffville.",
+    phone: "+1 647-695 5700",
+    email: " welcome@rccgstouffville.org",
   },
   {
     image: image6,
-    title: "Relationship with God",
-    day: "30",
-    month: "May",
-    time: "8:00 EST",
-    contents:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis ligula pellentesque nisi tristique porta. Vestibulum eget nisi est. Vivamus pharetra mattis ornare. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc eget nisl vel nisl pellentesque semper sed quis tellus. Integer euismod consequat ipsum eget congue. Aliquam sit amet ipsum ornare, aliquam arcu eu, eleifend ante. Vestibulum iaculis finibus quam, quis vestibulum ligula blandit ut. Suspendisse sit amet dolor vitae lectus posuere vestibulum. Fusce a est dui.",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    start: "August 31 @8:00 EST",
-    end: "August 31 @8:00 EST",
-    venue: "5592 Aurora Rd, Whitchurch-Stouffville, ON, Canada",
-    phone: "+1 825 806 9862",
-    email: "info@StrongTowerStouffville.com",
-  },
-  {
-    image: image6,
-    title: "Relationship with Heaven",
-    day: "30",
-    month: "May",
-    time: "8:00 EST",
+    title: "Digging Deep",
+    day: "Every",
+    month: "2nd and 4th",
+    time: "Tuesdays",
     content:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     start: "sep 31 @8:00 EST",
     end: "August 31 @8:00 EST",
-    venue: "5592 Aurora Rd, Whitchurch-Stouffville, ON, Canada",
-    phone: "+1 825 806 9862",
-    email: "info@StrongTowerStouffville.com",
+    venue: "Ballantrae Community Center 5592 Aurora Rd Whitchurch Stouffville.",
+    phone: "+1 647-695 5700",
+    email: " welcome@rccgstouffville.org",
+  },
+  {
+    image: image6,
+    title: " Faith Clinic ",
+    day: "Every",
+    month: "3rd Thursday",
+    time: "7:00pm EST",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    start: "sep 31 @7:00 EST",
+    end: "August 31 @:00 EST",
+    venue: "Ballantrae Community Center 5592 Aurora Rd Whitchurch Stouffville.",
+    phone: "+1 647-695 5700",
+    email: " welcome@rccgstouffville.org",
+  },
+  {
+    image: image6,
+    title: "Sunday School holds",
+    day: "Every",
+    month: "Sunday",
+    time: "10:00am EST",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    start: "sep 31 @8:00 EST",
+    end: "August 31 @8:00 EST",
+    venue: "Ballantrae Community Center 5592 Aurora Rd Whitchurch Stouffville.",
+    phone: "+1 647-695 5700",
+    email: " welcome@rccgstouffville.org",
   },
 ];
 
@@ -110,13 +142,11 @@ const Events = ({ events, onClick }: EventsProps) => {
     </div>
   );
 };
-interface SelectedEventProps {
-  selectedEventTitle: string | null;
-  setSelectedEventTitle: (title: string | null) => void;
-}
-const EventNav = ({setSelectedEventTitle}:SelectedEventProps) => {
-  const [eventsOpen, setEventOpen] = useState<number | null>(null);
 
+const EventPage = () => {
+  const [eventsOpen, setEventOpen] = useState<number | null>(null);
+  const [SelectedEventTitle,setSelectedEventTitle]= useState<string| null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleEventClick = (index: number) => {
     setSelectedEventTitle(EventContent[index].title);
     setEventOpen(index === eventsOpen ? null : index);
@@ -126,6 +156,90 @@ const EventNav = ({setSelectedEventTitle}:SelectedEventProps) => {
 
   return (
     <section>
+            <div
+        className="flex flex-col"
+        style={{
+          backgroundImage: `url(${image2})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          transition: "background-image",
+        }}
+      >
+        <Header />
+
+        <div className="flex items-center justify-between p-4 w-full">
+          <div className="flex items-center">
+            <img src={logo} alt="logo" className="w-33" />
+          </div>
+
+          <div className="hidden md:flex gap-4 text-white text-sm capitalize cursor-pointer">
+            {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
+              (link) => (
+                <NavLink
+                  key={link}
+                  to={`/${link === "home" ? "" : link.toLowerCase()}`}
+                  className={({ isActive }) =>
+                    `px-4 py-1 ${isActive ? "underline" : "hover:underline"}`
+                  }
+                >
+                  {link}
+                </NavLink>
+              )
+            )}
+          </div>
+
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-white text-3xl"
+            >
+              ☰
+            </button>
+          </div>
+        
+        </div>
+
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50 min-h-screen">
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute top-4 right-4 text-white text-3xl md:text-4xl focus:outline-none"
+              aria-label="Close menu"
+            >
+              ×
+            </button>
+
+            <nav className="flex flex-col items-center gap-6 md:gap-8 w-full max-w-md px-4">
+              {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
+                (link) => (
+                  <NavLink
+                    key={link}
+                    to={`/${link === "home" ? "" : link.toLowerCase()}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `text-white text-xl md:text-2xl py-2 cursor-pointer capitalize transition-all duration-200 ${
+                        isActive ? "underline" : "hover:text-gray-200"
+                      }`
+                    }
+                  >
+                    {link}
+                  </NavLink>
+                )
+              )}
+            </nav>
+          </div>
+        )}
+          <div>
+            <div className='flex flex-col gap-4 justify-center items-center p-6'>
+              <hr className='w-full h-0,5 text-white opacity-50' />
+              <h1 className='text-4xl capitalize text-white'>
+                {" "}
+                {SelectedEventTitle || "Our Sermons"}{" "}
+              </h1>
+              <hr className='w-full h-0,5 text-white opacity-50' />
+            </div>
+          </div>
+      </div>
       {eventsOpen === null ? (
         <div className='flex justify-center'>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-16 p-12 mt-5'>
@@ -210,8 +324,9 @@ const EventNav = ({setSelectedEventTitle}:SelectedEventProps) => {
           </div>
         </section>
       )}
+     <Footer />
     </section>
   );
 };
 
-export default EventNav;
+export default EventPage;
