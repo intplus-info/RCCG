@@ -94,11 +94,11 @@ const JoinPage = () => {
           </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center gap-6 p-4 md:px-[112px] md:py-9 mt-8">
-        <h1 className="md:text-[44px] uppercase font-bold text-black">
+      <div className="flex flex-col justify-center items-center gap-6 p-4 md:px-[149px] md:py-9 mt-8">
+        <h1 className="md:text-[40px] uppercase font-bold text-black">
           Join Us at RCCG Strongtower Stouffville!
         </h1>
-        <p className="text-[#0D0D0D99] md:text-xl">
+        <p className="text-[#0D0D0D99] md:text-lg">
           At RCCG Strongtower Stouffville, we are more than just a church—we are
           a family. Whether you’re new to faith, seeking a spiritual home, or
           looking to grow deeper in your relationship with God, you are welcome
@@ -131,7 +131,7 @@ const JoinPage = () => {
           <p className="md:text-xl text-[#00000099]">
             When you join us, you’ll find a place where:
           </p>
-          <ul className="p-2 text-2xl">
+          <ul className="p-2 text-lg px-11 ]">
             <li className="text-[#00000099] ml-4 py-2">
             Destinies are Redeemed: No matter your past, there is hope and a future in Christ.
             </li>
@@ -149,19 +149,19 @@ const JoinPage = () => {
           </p>
           <div className="px-6 border-l-2 border-[#FF7F00] flex flex-col gap-3">
             <p className="text-[#00000099] text-lg">
-              <span className="text-black font-bold">Sunday Services :</span>Join us every Sunday for uplifting worship, inspiring messages, and a time of fellowship.
+              <span className="text-[#161722] font-semibold">Sunday Services :</span>Join us every Sunday for uplifting worship, inspiring messages, and a time of fellowship.
             </p>
             <p className="text-[#00000099] text-lg">
-              <span className="text-black font-bold">MidWeek Programs :</span>  Dive deeper into the Word and connect with others through our midweek Bible studies and prayer meetings.
+              <span className="text-[#161722] font-semibold">MidWeek Programs :</span>  Dive deeper into the Word and connect with others through our midweek Bible studies and prayer meetings.
               God’s
             </p>
             <p className="text-[#00000099] text-lg">
-              <span className="text-black font-bold">Volunteer Oppurtunities :</span>{" "}
+              <span className="text-[#161722] font-semibold">Volunteer Oppurtunities :</span>{" "}
               Use your gifts and talents to serve in our various ministries and outreach programs.
             </p>
         
             <p className="text-[#00000099] text-lg">
-              <span className="text-black font-bold">Community Events :</span> Be part of our special events, workshops, and activities designed to strengthen relationships and build community.
+              <span className="text-[#161722] font-semibold">Community Events :</span> Be part of our special events, workshops, and activities designed to strengthen relationships and build community.
             </p>
           </div>
         </div>
@@ -185,8 +185,8 @@ const JoinPage = () => {
           className="w-full"
         ></iframe>
 
-        <div className="flex flex-col gap-4">
-          <h1 className="md:text-xl font-bold text-black py-3">
+        <div className="flex flex-col gap-3">
+          <h1 className="md:text-xl font-bold text-black ">
             STAY CONNECTED
           </h1>
           <p className="text-[#00000099]">
@@ -202,12 +202,9 @@ const JoinPage = () => {
             community.
           </p>
           <p className="text-[#00000099]">
-            We can’t wait to meet you! If you’re visiting for the first time,
-            we’ll make sure you feel right at home. Let us know you’re coming by
-            filling out our <Link to="/form"><span className="underline text-orange-500"> Connect Form</span></Link>, and we’ll be ready to welcome you with
-            open arms.
+          At RCCG Strongtower Stouffville, we believe that together, we can build a community of faith, hope, and love. Come as you are, and let’s grow together in Christ.
           </p>
-          <p className="text-[#00000099]">We can’t wait to see you!</p>
+          <p className="text-[#00000099] py-4 mb-6">We can’t wait to see you!</p>
         </div>
       </div>
      <Footer />

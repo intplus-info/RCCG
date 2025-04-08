@@ -48,13 +48,13 @@ const Footer = () => {
       </div>
 
       {/* Attribution */}
-      <div className="mt-4 text-center text-xs md:text-sm text-gray-400">
-        Powered by{" "}
+      <div className="mt-4 text-center text-xs md:text-sm text-gray-400 text-[7px]">
+       <span className="text-[8px]">Powered by{" "}</span> 
         <a
           href="https://www.intplus.co"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:underline text-orange-500 font-medium"
+          className="hover:underline text-orange-500 font-medium text-[8px]"
         >
           Int+ Technology
         </a>

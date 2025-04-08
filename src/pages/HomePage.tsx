@@ -236,8 +236,8 @@ const Homepage = () => {
                 </div>
               </CarouselItem>
             </CarouselContent>
-            <CarouselPrevious className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 p-1 md:p-2 rounded-full" />
-            <CarouselNext className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 p-1 md:p-2 rounded-full" />
+            <CarouselPrevious className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 p-1 md:p-2 rounded-full hover:bg-black/50 hover:text-white" />
+            <CarouselNext className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 p-1 md:p-2 rounded-full hover:bg-black/50 hover:text-white" />
           </Carousel>
         </main>
       </div>
