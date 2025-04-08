@@ -2,6 +2,7 @@ import image10 from "../assets/trees.svg";
 import Jump from "../assets/jump.svg"
 import image from "../assets/cuts.svg"
 import frame43 from "../assets/Frame43.svg";
+import { NavLink } from "react-router-dom";
 const Sermons = () => {
   return (
     <div className='flex flex-col items-center justify-center gap-5  p-13'>
@@ -18,12 +19,14 @@ const Sermons = () => {
             alt=''
             className=' w-[69px] h-[63px] md:w-[211px] md:h-[143px]'
           />
+            <NavLink to="/sermons">
           <div className='flex flex-col  justify-center gap-2'>
-            <p className='text-sm md:text-2xl'>Transforming Live, Restoring Hope</p>
+            <p className='text-sm md:text-2xl hover:underline'>Transforming Live, Restoring Hope</p>
             <p className=' text-sm text-gray-600'>
               By <span className='text-orange-400'>Admin</span>, August 8 2025
             </p>
           </div>
+          </NavLink>
         </div>
         <img
           src={frame43}
@@ -38,12 +41,14 @@ const Sermons = () => {
             alt=''
             className=' w-[69px] h-[63px] md:w-[211px] md:h-[143px]'
           />
+             <NavLink to="/sermons">
           <div className='flex flex-col  justify-center gap-2'>
-            <p className='text-sm md:text-2xl'> Put Your Faith Into Action</p>
+            <p className='text-sm md:text-2xl hover:underline'> Put Your Faith Into Action</p>
             <p className=' text-sm text-gray-600'>
               By <span className='text-orange-400'>Admin</span>, August 8 2025
             </p>
           </div>
+          </NavLink>
         </div>
         <img
           src={frame43}
@@ -58,12 +63,14 @@ const Sermons = () => {
             alt=''
             className=' w-[69px] h-[63px] md:w-[211px] md:h-[143px]'
           />
+          <NavLink to="/sermons">
           <div className='flex flex-col  justify-center gap-2'>
-            <p className='text-sm md:text-2xl'> Put Your Faith Into Action</p>
+            <p className='text-sm md:text-2xl hover:underline'> Put Your Faith Into Action</p>
             <p className=' text-sm text-gray-600'>
               By <span className='text-orange-400'>Admin</span>, August 8 2025
             </p>
           </div>
+          </NavLink>
         </div>
         <img
           src={frame43}
