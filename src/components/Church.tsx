@@ -11,7 +11,7 @@ const Church = () => {
         <div className='w-9 md:w-28 bg-gray-400 h-0.5'></div>
       </div>
       <div className='flex mt-4 gap-7 flex-col md:flex-row md:gap-[40px] w-full'>
-        <div className='flex flex-col text-left  gap-[12px] md:w-[2100px]'>
+        <div className='flex flex-col text-left  gap-[16px] md:w-[2100px]'>
           <img src={image9} alt='' />
           <p className='text-xl text-black'>Our Community</p>
           <p className='text-gray-500 text-sm'>
@@ -25,7 +25,7 @@ const Church = () => {
             embody the strength of God to transform lives and communities.
           </p>
         </div>
-        <div className='flex flex-col text-left gap-[12px] md:w-[2100px]'>
+        <div className='flex flex-col text-left gap-[16px] md:w-[2100px]'>
           <img src={image10} alt='image' />
           <p className='text-xl text-black'>Church Mission</p>
           <p className='text-gray-500 text-sm'>
@@ -37,7 +37,7 @@ const Church = () => {
             help build a happier society.{" "}
           </p>
         </div>
-        <div className='flex flex-col text-left gap-[12px] md:w-[2100px]'>
+        <div className='flex flex-col text-left gap-[16px] md:w-[2100px]'>
           <img src={image11} alt='image' />
           <p className='text-xl text-black text-left'>Participate With Us</p>
           <p className='text-gray-500 text-sm'>
@@ -47,7 +47,7 @@ const Church = () => {
             Strengthen your spirit in our dynamic services and prayer
             gatherings. Partnerships: Collaborate with us to support local and
             global missions. Fellowship: Connect with others in small groups and
-            community events.{" "}
+            community events.{" "}
           </p>
         </div>
       </div>

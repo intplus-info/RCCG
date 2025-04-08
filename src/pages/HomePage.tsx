@@ -214,7 +214,7 @@ const Homepage = () => {
                           Join Us
                         </button>
                       </NavLink>
-                      <NavLink to="/join">
+                      <NavLink to="/events">
                         <button className="border border-white px-4 py-2 md:px-6 md:py-3 rounded-full cursor-pointer text-sm md:text-base">
                           Learn More
                         </button>
