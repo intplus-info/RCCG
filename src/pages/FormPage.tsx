@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 interface ContactFormProps {
   onSubmit?: (formData: FormData) => void;
@@ -70,9 +69,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       <div className="mb-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold px-19">We're Excited to Meet You</h2>
-          <Link to="/join">
-          <button className="text-blue-500 text-xl cursor-pointer">&times;</button>
-          </Link>
+        
         </div>
         
         <p className="text-sm text-[#0D0D0D99] mb-4">
@@ -80,22 +77,19 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
         </p>
         <p className='text-[#0D0D0D99] font-bold py-4'>Connect With Us</p>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-[#0D0D0D99] mb-1">
+        <div className="mb-4">
+            <label className="block text-sm font-medium text-[#0D0D0D99]  mb-1">
               Full Name
             </label>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                name="firstName"
-                placeholder="Full Name"
-                className="w-1/2 p-2 border border-gray-300 rounded"
-                value={formData.firstName}
-                onChange={handleInputChange}
-                required
-              />
-            
-            </div>
+            <input
+              type="text"
+              name="Full Name"
+              placeholder='Full Name'
+              className="w-full p-2 border border-gray-300 rounded"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
           </div>
           
           <div className="mb-4">

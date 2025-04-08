@@ -1,8 +1,13 @@
 import { NavLink } from "react-router-dom"
 
-const Footer = () => {
+// Adding props interface with className
+interface FooterProps {
+  className?: string;
+}
+
+const Footer = ({ className = "" }: FooterProps) => {
   return (
-    <div className="bg-black px-2 py-4 text-white">
+    <div className={`bg-black px-2 py-4 text-white ${className}`}>
       <div className="flex flex-col md:flex-row justify-between items-center text-sm">
         <div className="mb-4 md:mb-0 text-center md:text-left">
           <p>©2025 RCCG StrongTower Stouffville</p>
@@ -10,7 +15,7 @@ const Footer = () => {
 
         {/* Navigation for small screens */}
         <div className="grid grid-cols-3 gap-x-2 gap-y-1 md:hidden text-center">
-          {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
+          {["home", "join", "sermons", "Events", "Give", "Gallery","blogs"].map(
             (link) => (
               <NavLink
                 key={link}
@@ -29,7 +34,7 @@ const Footer = () => {
 
         {/* Navigation for medium screens and above */}
         <div className="hidden md:flex gap-3">
-          {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
+          {["home", "join", "sermons", "Events", "Give", "Gallery","blogs"].map(
             (link) => (
               <NavLink
                 key={link}

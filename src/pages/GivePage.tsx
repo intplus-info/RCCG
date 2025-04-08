@@ -1,13 +1,21 @@
 const image2 = "https://i.imgur.com/K38ANvA.png"
-
+import {  DialogTrigger, DialogContent, DialogOverlay } from "@/components/ui/dialog";
 import Header from "../components/Header"
-import { Link, NavLink } from "react-router-dom"; // Replace Link with NavLink
+import { NavLink } from "react-router-dom"; // Replace Link with NavLink
 import { useState } from "react";
 import logo from "../assets/logo.svg";
 import Footer from "@/components/footer";
+import { Dialog } from "@/components/ui/dialog";
+import BankPage from "./BankPage";
 const GivePage = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [inputMoney, SetInputMoney] = useState("");
+  const [open, setOpen] = useState(false);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    const value = e.target.value
+SetInputMoney(value)
+  }
     return (
         <>
           <div
@@ -91,7 +99,7 @@ const GivePage = () => {
             </div>
           </div>
       </div>
-      <div className="flex flex-col text-center  gap-4 p-6 md:p-20">
+      <div className="flex flex-col text-center  gap-4 py-9 px-6 md:px-20">
       <p className="text-[#00000099] text-lg md:text-2xl">Welcome to RCCG Strongtower Stouffville, a thriving Christian community rooted in faith, love, and the transformative power of God’s Word. At the heart of our mission is Jesus Christ, and we are passionate about building a strong, united community that reflects His love and grace. Together, we strive to create a space where lives are touched, destinies are redeemed, and dominion is restored</p>
       <p className="text-[#00000099] text-lg md:text-2xl">Our vision goes beyond the walls of the church—we are committed to fostering a sense of belonging and purpose, where every individual feels valued and empowered. Through fellowship, worship, and the teaching of God’s Word, we aim to inspire positive change in our community and beyond. Here, you’ll find a family that supports, encourages, and walks alongside you in your spiritual journe</p>
       <p className="text-[#00000099] text-lg md:text-2xl">As we grow together, our focus remains on preparing the Church for the glorious return of our Lord Jesus Christ. We envision a community where people from all nations and walks of life come together to lift His name in praise and worship.</p>
@@ -99,7 +107,7 @@ const GivePage = () => {
       <p className="text-[#00000099] text-lg md:text-2xl">As we grow together, our focus remains on preparing the Church for the glorious return of our Lord Jesus Christ. We envision a community where people from all nations and walks of life come together to lift His name in praise and worship.</p>
       
         </div>
-        <div className="max-w-[700px] mx-auto mt-10 bg-white p-6 rounded-lg shadow-md">
+        <div className="max-w-[700px] mx-auto mb-29 bg-white p-6 rounded-lg shadow-md">
   <h2 className="text-xl font-semibold text-[#666666] text-left mb-4">Select type of donation</h2>
 
   {/* Dropdown for donation type */}
@@ -120,6 +128,8 @@ const GivePage = () => {
     min="5"
     placeholder="5"
     className="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
+    onChange={handleChange}
+    value={inputMoney}
   />
 
   {/* Action buttons */}
@@ -130,14 +140,24 @@ const GivePage = () => {
     >
       Clear
     </button>
-    <Link to="/pay">
-    <button
-      type="submit"
-      className="px-10 py-3 bg-orange-500 text-white rounded hover:opacity-60 cursor-pointer"
-    >
+    <Dialog open={open} onOpenChange={setOpen}>
+  <DialogTrigger asChild>
+    <button className="px-10 py-3 bg-orange-500 text-white rounded hover:opacity-60 cursor-pointer">
       Next
     </button>
-    </Link>
+  </DialogTrigger>
+
+  {/* Custom overlay: full black background */}
+  <DialogOverlay className="fixed inset-0 bg-white z-50" />
+
+  <DialogContent
+    className="bg-white min-w-[800px] max-h-[95vh] overflow-y-auto p-6 z-50"
+    style={{ scrollbarGutter: 'stable' }}
+  >
+    <BankPage money={Number(inputMoney)} />
+  </DialogContent>
+</Dialog>
+
   </div>
 </div>
 

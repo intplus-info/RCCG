@@ -14,7 +14,7 @@ const Header = () => {
     <nav className='flex justify-between  bg-transparent px-5'>
       <div className='flex gap-4'>
         <img src={location} alt='location' className='w-4 ' />
-        <p className='text-sm sm:text-0.5 font-small  text-dark font-light text-white'>
+        <p className='text-[9px] md:text-sm font-small  text-dark font-light text-white'>
           5592 Aurora Rd, Whitchurch-Stouffville, ON, Canada
         </p>
       </div>

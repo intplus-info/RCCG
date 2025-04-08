@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
-const PaymentForm: React.FC = () => {
+type PaymentFormProps = {
+  money: number;
+};
+const PaymentForm: React.FC<PaymentFormProps> = ({ money }) => {
   const [formData, setFormData] = useState({
     cardNumber: '',
     expiry: '',
@@ -30,9 +31,6 @@ const PaymentForm: React.FC = () => {
       <form onSubmit={handleSubmit} className="space-y-4">
         <h2 className="text-center text-sm text-gray-600 mb-4">
           Please complete your information below.
-          <Link to="/events">
-          <button className="text-[#666666] hover:text-red-600 text-xl cursor-pointer">&times;</button>
-          </Link>
         </h2>
 
         <div>
@@ -179,7 +177,7 @@ const PaymentForm: React.FC = () => {
         </div>
 
         <div className="flex justify-between items-center mt-6">
-          <span className="text-lg font-bold">$30</span>
+          <span className="text-lg font-bold">{(money)+'$'  || "$30"}</span>
           <button
             type="submit"
             className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-md"

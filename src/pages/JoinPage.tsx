@@ -2,11 +2,12 @@ import image from "../assets/Image.svg";
 const image2 = "https://i.imgur.com/K38ANvA.png"
 
 import Header from "../components/Header"
-import { Link, NavLink } from "react-router-dom"; // Replace Link with NavLink
+import {  NavLink } from "react-router-dom"; // Replace Link with NavLink
 import { useState } from "react";
 import logo from "../assets/logo.svg";
 import Footer from "@/components/footer";
-
+import { Dialog, DialogContent, DialogOverlay, DialogTrigger } from "@/components/ui/dialog";
+import FormPage from "./FormPage";
 const JoinPage = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -170,7 +171,17 @@ const JoinPage = () => {
             PLAN YOUR VISIT
           </h1>
           <p className="text-[#00000099]">
-          We can’t wait to meet you! If you’re visiting for the first time, we’ll make sure you feel right at home. Let us know you’re coming by filling out our <Link to="/form"><span className="underline text-orange-500"> Connect Form</span></Link> , and we’ll be ready to welcome you with open arms.
+          We can’t wait to meet you! If you’re visiting for the first time, we’ll make sure you feel right at home. Let us know you’re coming by filling out our <Dialog>
+  <DialogTrigger asChild>
+    <button className="underline cursor-pointer text-orange-500 ml-1">Contact Form</button>
+  </DialogTrigger>
+  <DialogContent className="bg-white min-w-[800px] max-h-[92vh] overflow-y-auto">
+    <FormPage />
+  
+  </DialogContent>
+  <DialogOverlay className="fixed inset-0 bg-white z-50" />
+
+</Dialog> , and we’ll be ready to welcome you with open arms.
           </p>
         </div>
 

@@ -10,13 +10,15 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
 
 import Header from "../components/Header";
 import Footer from "@/components/footer";
 
-const firstBackgound = "https://i.imgur.com/GZHb8nT.png";
+const firstBackgound = "https://i.imgur.com/x35j7sr.jpeg";
 const secondback = "https://i.imgur.com/UXNy8WO.png";
 const book1 = "https://i.imgur.com/FJNZUFp.png";
 const book2 = "https://i.imgur.com/kJFx9fz.png";
@@ -26,6 +28,9 @@ const Homepage = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [api, setApi] = useState<CarouselApi>();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [previousSlide, setPreviousSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const backgroundImages = [firstBackgound, secondback];
 
   const events = [
@@ -57,109 +62,136 @@ const Homepage = () => {
 
     const interval = setInterval(() => {
       api.scrollNext();
-    }, 5000);
+    }, 10000);
+
+    const handleSelect = () => {
+      setPreviousSlide(currentSlide);
+      setIsTransitioning(true);
+      setCurrentSlide(api.selectedScrollSnap());
+
+      // Reset transition state after animation completes
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 1000);
+    };
+
+    api.on("select", handleSelect);
 
     return () => {
       clearInterval(interval);
+      api.off("select", handleSelect);
     };
-  }, [api]);
+  }, [api, currentSlide]);
+
+  // Add CSS using useEffect to inject the animation styles
+  useEffect(() => {
+    // Create style element
+    const styleEl = document.createElement("style");
+    styleEl.textContent = `
+      @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+      }
+    `;
+    // Append to document head
+    document.head.appendChild(styleEl);
+
+    // Clean up on unmount
+    return () => {
+      document.head.removeChild(styleEl);
+    };
+  }, []);
 
   return (
-<>
-      <div className="flex flex-col relative min-h-screen ">
-        {/* Fixed position background carousel */}
-        <div className="absolute inset-0 z-0 overflow-hidden ">
-          <Carousel
-            setApi={setApi}
-            opts={{ 
-              align: "start", 
-              loop: true,
-              skipSnaps: false,
-              containScroll: false
+    <>
+      <div
+        className="flex flex-col relative bg-cover bg-center min-h-screen"
+        style={{
+          backgroundImage: `url(${backgroundImages[currentSlide]})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          transition: "background-image 0.5s ease-in-out",
+        }}
+      >
+        {/* Add a fade overlay for smoother transitions */}
+        {isTransitioning && (
+          <div
+            className="absolute inset-0 bg-cover bg-center z-0"
+            style={{
+              backgroundImage: `url(${backgroundImages[previousSlide]})`,
+              opacity: 0,
+              animation: "fadeOut 0.5s ease-in-out",
             }}
-            className="h-full w-full "
-          >
-            <CarouselContent className="h-full">
-              {backgroundImages.map((image, index) => (
-                <CarouselItem key={index} className="h-full w-full">
-                  <img
-                    src={image}
-                    alt={`Slide ${index + 1}`}
-                    className="h-full w-full object-cover"
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+          />
+        )}
+
+        <Header />
+
+        <div className="flex items-center justify-between p-4 w-full relative z-10">
+          <div className="flex items-center">
+            <img src={logo} alt="logo" className="w-24 md:w-33" />
+          </div>
+
+          <div className="hidden md:flex gap-4 text-white text-sm capitalize cursor-pointer">
+            {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
+              (link) => (
+                <NavLink
+                  key={link}
+                  to={`/${link === "home" ? "" : link.toLowerCase()}`}
+                  className={({ isActive }) =>
+                    `px-4 py-1 ${isActive ? "underline" : "hover:underline"}`
+                  }
+                >
+                  {link}
+                </NavLink>
+              )
+            )}
+          </div>
+
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-white text-3xl"
+            >
+              ☰
+            </button>
+          </div>
         </div>
 
-        {/* Content overlay */}
-        <div className="relative z-10 flex flex-col min-h-screen bg-black/40">
-          <Header />
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50 min-h-screen">
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute top-4 right-4 text-white text-2xl focus:outline-none"
+              aria-label="Close menu"
+            >
+              ×
+            </button>
 
-          <div className="flex items-center justify-between p-4 w-full">
-            <div className="flex items-center">
-              <img src={logo} alt="logo" className="w-24 md:w-33" />
-            </div>
-
-            <div className="hidden md:flex gap-4 text-white text-sm capitalize cursor-pointer">
+            <nav className="flex flex-col items-center gap-3 w-full max-w-xs px-4">
               {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
                 (link) => (
                   <NavLink
                     key={link}
                     to={`/${link === "home" ? "" : link.toLowerCase()}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className={({ isActive }) =>
-                      `px-4 py-1 ${isActive ? "underline" : "hover:underline"}`
+                      `text-white text-lg py-2 w-full text-center border-b border-white/20 cursor-pointer capitalize transition-all duration-200 ${
+                        isActive ? "font-bold" : "hover:bg-white/10"
+                      }`
                     }
                   >
                     {link}
                   </NavLink>
                 )
               )}
-            </div>
-
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-white text-3xl"
-              >
-                ☰
-              </button>
-            </div>
+            </nav>
           </div>
+        )}
 
-          {isMobileMenuOpen && (
-            <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50 min-h-screen">
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="absolute top-4 right-4 text-white text-2xl focus:outline-none"
-                aria-label="Close menu"
-              >
-                ×
-              </button>
-
-              <nav className="flex flex-col items-center gap-3 w-full max-w-xs px-4">
-                {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
-                  (link) => (
-                    <NavLink
-                      key={link}
-                      to={`/${link === "home" ? "" : link.toLowerCase()}`}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={({ isActive }) =>
-                        `text-white text-lg py-2 w-full text-center border-b border-white/20 cursor-pointer capitalize transition-all duration-200 ${
-                          isActive ? "font-bold" : "hover:bg-white/10"
-                        }`
-                      }
-                    >
-                      {link}
-                    </NavLink>
-                  )
-                )}
-              </nav>
-            </div>
-          )}
-
-          <main className="flex-grow flex items-center  justify-center h-[50vh] md:h-[70vh] lg:h-[80vh]">
+        <main className="flex-grow relative h-[50vh] md:h-[70vh] lg:h-[80vh]">
+          {/* Fixed content overlay */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center h-full">
             <div className="flex items-center justify-center h-full text-white mt-33 px-4">
               <div className="text-center">
                 <h1 className="text-lg md:text-4xl font-normal mb-2 md:mb-4">
@@ -185,8 +217,25 @@ const Homepage = () => {
                 </div>
               </div>
             </div>
-          </main>
-        </div>
+          </div>
+
+          {/* Background image carousel */}
+          <Carousel
+            setApi={setApi}
+            opts={{ align: "start", loop: true }}
+            className="relative h-full ease-in-out"
+          >
+            <CarouselContent className="h-full">
+              {backgroundImages.map((_, index) => (
+                <CarouselItem key={index} className="h-full">
+                  {/* Empty carousel items - just for triggering slide changes */}
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 p-1 md:p-2 rounded-full hover:bg-black/50 hover:text-white" />
+            <CarouselNext className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 p-1 md:p-2 rounded-full hover:bg-black/50 hover:text-white" />
+          </Carousel>
+        </main>
       </div>
 
       <div className="flex flex-col md:flex-row h-auto md:h-64 overflow-hidden">
