@@ -1,5 +1,6 @@
 import image from "../assets/Image.svg";
-import image2 from "../assets/im88.svg";
+const image2 = "https://i.imgur.com/K38ANvA.png"
+
 import Header from "../components/Header"
 import { Link, NavLink } from "react-router-dom"; // Replace Link with NavLink
 import { useState } from "react";

@@ -56,7 +56,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="hover:underline text-orange-500 font-medium"
         >
-          intPlus+ Technologies
+          Int+ Technology
         </a>
       </div>
     </div>

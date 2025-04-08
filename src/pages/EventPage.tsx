@@ -1,11 +1,8 @@
 import { useState } from "react";
-import image6 from "../assets/image6.svg";
 import { NavLink } from "react-router-dom";
 import Header from "@/components/Header";
 import logo from "../assets/logo.svg";
-import image2 from "../assets/im88.svg";
 import Footer from "@/components/footer";
-import image5 from "../assets/image5.svg";
 
 interface Event {
   image: string;
@@ -26,10 +23,12 @@ interface EventsProps {
   events: Event;
   onClick: () => void;
 }
-
+const book1 = "https://i.imgur.com/FJNZUFp.png";
+const book2 ="https://i.imgur.com/kJFx9fz.png";
+const header = "https://i.imgur.com/K38ANvA.png"
 const EventContent: Event[] = [
   {
-    image: image5,
+    image: book1,
     title: "Sunday Services (Every Sunday)",
     day: "Every",
     month: "Sunday",
@@ -46,7 +45,7 @@ const EventContent: Event[] = [
     email: " welcome@rccgstouffville.org",
   },
   {
-    image: image6,
+    image: book2,
     title: "Morning Mercy Prayer meeting ",
     day: "Every",
     month: "Monday",
@@ -62,7 +61,7 @@ const EventContent: Event[] = [
     email: " welcome@rccgstouffville.org",
   },
   {
-    image: image5,
+    image: book1,
     title: "ICUTL- I Cry Unto The Lord ",
     day: "Every",
     month: "last saturday",
@@ -78,7 +77,7 @@ const EventContent: Event[] = [
     email: " welcome@rccgstouffville.org",
   },
   {
-    image: image6,
+    image: book2,
     title: "Digging Deep",
     day: "Every",
     month: "2nd and 4th",
@@ -134,7 +133,7 @@ const EventPage = () => {
             <div
         className="flex flex-col"
         style={{
-          backgroundImage: `url(${image2})`,
+          backgroundImage: `url(${header})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           transition: "background-image",

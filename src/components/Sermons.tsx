@@ -6,10 +6,10 @@ const Sermons = () => {
   return (
     <div className='flex flex-col items-center justify-center gap-5  p-13'>
       <div className='flex gap-3 items-center'>
-        <div className='w-28 bg-gray-400 h-0.5'></div>
-        <p className='text-gray-700 text-sm md:text-lg'>Latest Sermons</p>
+        <div className='w-9 md:w-28 bg-gray-400 h-0.5'></div>
+        <p className='text-gray-700 text-[10px] md:text-lg'>Latest Sermons</p>
 
-        <div className='w-28 bg-gray-400 h-0.5'></div>
+        <div className='w-9 md:w-28 bg-gray-400 h-0.5'></div>
       </div>
       <div className='flex justify-between w-full'>
         <div className='flex gap-4'>

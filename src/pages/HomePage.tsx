@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import image1 from "../assets/ii.svg";
-import image2 from "../assets/im.svg";
 import logo from "../assets/logo.svg";
-import image5 from "../assets/image5.svg";
-import image6 from "../assets/image6.svg";
-import image7 from "../assets/image7.svg";
 import TImer from "../components/TImer";
 import Church from "../components/Church";
 import Sermons from "../components/Sermons";
@@ -23,7 +18,11 @@ import {
 import Header from "../components/Header";
 import Footer from "@/components/footer";
 
-
+const firstBackgound = "https://i.imgur.com/wvJaiwr.png";
+const secondback ="https://i.imgur.com/BzIQqS9.png"
+const book1 = "https://i.imgur.com/FJNZUFp.png";
+const book2 ="https://i.imgur.com/kJFx9fz.png";
+const bible ="https://i.imgur.com/Vca7WCH.png"
 const Homepage = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,25 +30,25 @@ const Homepage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [previousSlide, setPreviousSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const backgroundImages = [image1, image2];
+  const backgroundImages = [firstBackgound, secondback];
 
   const events = [
     {
-      image: image5,
+      image: book1,
       date: "April 30, 2025",
       title: "Relationship With",
       link: "/events",
       text: "5Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     },
     {
-      image: image6,
+      image: book2,
       date: "April 30, 2025",
       title: "Abundant Love",
       link: "/events",
       text: "5Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     },
     {
-      image: image7,
+      image: bible,
       date: "April 30, 2025",
       title: "God is Good",
       link: "/events",

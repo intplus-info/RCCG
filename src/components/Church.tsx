@@ -7,9 +7,9 @@ const Church = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-5  p-13">
         <div className="flex gap-3 items-center mb-5">
-            <div className="w-28 bg-gray-400 h-0.5"></div>
-            <p className="text-gray-700 text-sm md:text-lg">About The Church</p>
-            <div className="w-28 bg-gray-400 h-0.5"></div>
+            <div className="w-9 md:w-28 bg-gray-400 h-0.5"></div>
+            <p className="text-gray-700 text-[10px] md:text-lg">About The Church</p>
+            <div className="w-9 md:w-28 bg-gray-400 h-0.5"></div>
         </div>
         <div className="flex mt-4 gap-7 flex-col md:flex-row md:gap-[50px]">
             <div className="flex flex-col text-left  gap-[12px]">

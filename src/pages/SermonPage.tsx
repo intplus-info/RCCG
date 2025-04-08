@@ -9,7 +9,8 @@ import thirdimg from "../assets/third.svg";
 import { NavLink } from "react-router-dom";
 import Header from "@/components/Header";
 import logo from "../assets/logo.svg";
-import image2 from "../assets/im88.svg";
+const image2 = "https://i.imgur.com/K38ANvA.png"
+
 
 import image4 from "../assets/cuts.svg";
 import image5 from "../assets/image 11.png";
