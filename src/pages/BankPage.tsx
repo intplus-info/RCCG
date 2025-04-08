@@ -177,7 +177,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ money }) => {
         </div>
 
         <div className="flex justify-between items-center mt-6">
-          <span className="text-lg font-bold">{(money)+'$'  || "$30"}</span>
+          <span className="text-lg font-bold">{money == 0 ? "30$" : money + '$'}</span>
           <button
             type="submit"
             className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-md"
