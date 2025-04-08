@@ -202,7 +202,7 @@ const JoinPage = () => {
             community.
           </p>
           <p className="text-[#00000099]">
-          At RCCG Strongtower Stouffville, we believe that together, we can build a community of faith, hope, and love. Come as you are, and let’s grow together in Christ.
+          At RCCG Strongtower Stouffville, we believe that together, we can build a community of faith, hope, and love. Come as you are, and let’s grow together in Christ.
           </p>
           <p className="text-[#00000099] py-4 mb-6">We can’t wait to see you!</p>
         </div>
