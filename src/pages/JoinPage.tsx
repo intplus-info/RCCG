@@ -124,14 +124,14 @@ const JoinPage = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col md:mr-25 ">
           <p className="md:text-xl font-bold text-black py-3">
             WHAT TO EXPECT
           </p>
           <p className="md:text-xl text-[#00000099]">
             When you join us, you’ll find a place where:
           </p>
-          <ul className="p-2 text-lg px-11 ]">
+          <ul className="p-2 text-lg ]">
             <li className="text-[#00000099] ml-4 py-2">
             Destinies are Redeemed: No matter your past, there is hope and a future in Christ.
             </li>
