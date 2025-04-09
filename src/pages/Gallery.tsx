@@ -1,7 +1,7 @@
 const image2 = "https://i.imgur.com/K38ANvA.png"
 
 import Header from "../components/Header"
-import { NavLink } from "react-router-dom"; // Replace Link with NavLink
+import { NavLink } from "react-router-dom"; 
 import { useState } from "react";
 const galer1 = "https://i.imgur.com/Ya3Lmzj.png";
 const galer2 = "https://i.imgur.com/D96ELh9.png";
