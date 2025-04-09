@@ -3,12 +3,12 @@ const image2 = "https://i.imgur.com/K38ANvA.png"
 import Header from "../components/Header"
 import { NavLink } from "react-router-dom"; // Replace Link with NavLink
 import { useState } from "react";
-import image1 from "../assets/pic1.svg";
-import image3 from "../assets/pic3.svg";
-import image22 from "../assets/pic2.svg";
+const galer1 = "https://i.imgur.com/Ya3Lmzj.png";
+const galer2 = "https://i.imgur.com/D96ELh9.png";
+const galer3 = "https://i.imgur.com/gx5dXn0.png";
+const galer4 = "https://i.imgur.com/aWnFidA.png";
 
 
-import image4 from "../assets/pic4.svg";
 import logo from "../assets/logo.svg";
 import Footer from "@/components/footer";
 const Gallery = () => {
@@ -106,14 +106,14 @@ const Gallery = () => {
       </div>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-5'>
         <div className='md:col-span-2 grid grid-rows-2 gap-4'>
-          <img src={image1} alt='' className='w-full h-full object-cover' />
+          <img src={galer1} alt='' className='w-full h-full object-cover' />
           <div className='grid grid-cols-2 gap-4'>
-            <img src={image22} alt='' className='w-full h-full object-cover' />
-            <img src={image3} alt='' className='w-full h-full object-cover' />
+            <img src={galer4} alt='' className='w-full h-full object-cover' />
+            <img src={galer3} alt='' className='w-full h-full object-cover' />
           </div>
         </div>
         <div className='hidden md:block h-full'>
-          <img src={image4} alt='' className='w-full h-full object-cover' />
+          <img src={galer2} alt='' className='w-full h-full object-cover' />
         </div>
       </div>
     </div>
