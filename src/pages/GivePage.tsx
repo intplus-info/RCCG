@@ -153,7 +153,7 @@ const GivePage = () => {
 
             <DialogOverlay className="fixed inset-0 bg-white z-50" />
 
-            <DialogContent className="bg-white min-w-[800px] max-h-[95vh] overflow-y-auto p-6 z-50">
+            <DialogContent className="bg-white md:min-w-[800px] max-h-[95vh] overflow-y-auto p-6 z-50">
               <BankPage money={Number(inputMoney) || 0} />
             </DialogContent>
           </Dialog>

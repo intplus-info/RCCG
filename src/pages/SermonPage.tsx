@@ -660,9 +660,9 @@ const SermonPage = () => {
           }`}
         >
           <div className='flex gap-3 items-center'>
-            <div className='w-19 md:w-28 bg-gray-400 h-0.5'></div>
+            <div className='w-10 md:w-28 bg-gray-400 h-0.5'></div>
             <p className='text-gray-700 text-sm'>Latest Sermons</p>
-            <div className='w-19 md:w-28 bg-gray-400 h-0.5'></div>
+            <div className='w-10 md:w-28 bg-gray-400 h-0.5'></div>
           </div>
 
           {sermonsData.map((sermon, index) => (

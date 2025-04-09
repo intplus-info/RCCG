@@ -98,7 +98,7 @@ const JoinPage = () => {
       </div>
 
       <div className="flex flex-col justify-center items-center gap-6 p-4 md:px-[149px] md:py-9 mt-8">
-        <h1 className="md:text-[40px] uppercase font-bold text-black">
+        <h1 className="text-[18px] md:text-[40px] uppercase font-bold text-black">
           Join Us at RCCG Strongtower Stouffville!
         </h1>
         <p className="text-[#0D0D0D99] md:text-lg">
@@ -177,7 +177,7 @@ const JoinPage = () => {
   <DialogTrigger asChild>
     <button className="underline cursor-pointer text-orange-500 ml-1">Contact Form</button>
   </DialogTrigger>
-  <DialogContent className="bg-white min-w-[800px] max-h-[92vh] overflow-y-auto">
+  <DialogContent className="bg-white md:min-w-[800px] max-h-[92vh] overflow-y-auto">
     <FormPage />
   
   </DialogContent>
