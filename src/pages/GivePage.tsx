@@ -32,7 +32,11 @@ const GivePage = () => {
         <Header />
 
         <div className="flex items-center justify-between p-4 w-full">
-          <img src={logo} alt="logo" className="w-33" />
+        <NavLink to="/">
+            <div className="flex items-center">
+              <img src={logo} alt="logo" className="w-24 md:w-33" />
+            </div>
+            </NavLink>
 
           <div className="hidden md:flex gap-4 text-white text-sm capitalize cursor-pointer">
             {navigationLinks.map((link) => (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 type PaymentFormProps = {
-  money: number;
+  money?: number;
 };
 const PaymentForm: React.FC<PaymentFormProps> = ({ money }) => {
   const [formData, setFormData] = useState({

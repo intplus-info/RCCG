@@ -96,12 +96,14 @@ const Homepage = () => {
         {/* Content overlay */}
         <div className="relative z-10 flex flex-col min-h-screen bg-black/40">
           <Header />
+          
 
           <div className="flex items-center justify-between p-4 w-full">
+          <NavLink to="/">
             <div className="flex items-center">
               <img src={logo} alt="logo" className="w-24 md:w-33" />
             </div>
-
+            </NavLink>
             <div className="hidden md:flex gap-4 text-white text-sm capitalize cursor-pointer">
               {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
                 (link) => (
