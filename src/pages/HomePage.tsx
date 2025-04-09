@@ -18,6 +18,7 @@ import Footer from "@/components/footer";
 
 const firstBackgound = "https://i.imgur.com/GZHb8nT.png";
 const secondback = "https://i.imgur.com/UXNy8WO.png";
+const thirdBack = "https://i.imgur.com/BzIQqS9.png"
 const book1 = "https://i.imgur.com/FJNZUFp.png";
 const book2 = "https://i.imgur.com/kJFx9fz.png";
 const bible = "https://i.imgur.com/Vca7WCH.png";
@@ -26,7 +27,8 @@ const Homepage = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [api, setApi] = useState<CarouselApi>();
-  const backgroundImages = [firstBackgound, secondback];
+  const [textVisible, setTextVisible] = useState(false);
+  const backgroundImages = [firstBackgound, secondback,thirdBack];
 
   const events = [
     {
@@ -64,11 +66,21 @@ const Homepage = () => {
     };
   }, [api]);
 
+  // Add animation trigger after component mounts
+  useEffect(() => {
+    // Short timeout to ensure animation starts after render
+    const timer = setTimeout(() => {
+      setTextVisible(true);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-<>
-      <div className="flex flex-col relative min-h-screen ">
+    <>
+      <div className="flex flex-col relative min-h-screen">
         {/* Fixed position background carousel */}
-        <div className="absolute inset-0 z-0 overflow-hidden ">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <Carousel
             setApi={setApi}
             opts={{ 
@@ -77,11 +89,11 @@ const Homepage = () => {
               skipSnaps: false,
               containScroll: false
             }}
-            className="h-full w-full "
+            className="h-full w-full"
           >
             <CarouselContent className="h-full">
               {backgroundImages.map((image, index) => (
-                <CarouselItem key={index} className="h-full w-full">
+                <CarouselItem key={index} className="w-full h-[800px]">
                   <img
                     src={image}
                     alt={`Slide ${index + 1}`}
@@ -97,12 +109,11 @@ const Homepage = () => {
         <div className="relative z-10 flex flex-col min-h-screen bg-black/40">
           <Header />
           
-
           <div className="flex items-center justify-between p-4 w-full">
-          <NavLink to="/">
-            <div className="flex items-center">
-              <img src={logo} alt="logo" className="w-24 md:w-33" />
-            </div>
+            <NavLink to="/">
+              <div className="flex items-center">
+                <img src={logo} alt="logo" className="w-24 md:w-33" />
+              </div>
             </NavLink>
             <div className="hidden md:flex gap-4 text-white text-sm capitalize cursor-pointer">
               {["home", "join", "sermons", "Events", "Give", "Gallery"].map(
@@ -161,19 +172,36 @@ const Homepage = () => {
             </div>
           )}
 
-          <main className="flex-grow flex items-center  justify-center h-[50vh] md:h-[70vh] lg:h-[80vh]">
-            <div className="flex items-center justify-center h-full text-white mt-33 px-4">
+          <main className="flex-grow flex items-center justify-center h-[50vh] md:h-[70vh] lg:h-[80vh]">
+            <div className="flex items-center justify-center h-full text-white mt-20 px-4">
               <div className="text-center">
-                <h1 className="text-lg md:text-4xl font-normal mb-2 md:mb-4">
+                {/* Animated text elements */}
+                <h1 
+                  className={`text-lg md:text-4xl font-normal mb-2 md:mb-4 transition-all duration-1000 ease-out ${
+                    textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+                  }`}
+                >
                   Welcome to
                 </h1>
-                <p className="text-xl md:text-5xl font-bold mb-3 md:mb-5">
+                <p 
+                  className={`text-xl md:text-5xl font-bold mb-3 md:mb-5 transition-all duration-1000 delay-300 ease-out ${
+                    textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+                  }`}
+                >
                   RCCG StrongTower Stouffville
                 </p>
-                <p className="text-base md:text-2xl mb-4 md:mb-8">
+                <p 
+                  className={`text-base md:text-2xl mb-4 md:mb-8 transition-all duration-1000 delay-500 ease-out ${
+                    textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+                  }`}
+                >
                   A Place of Worship, Growth, and Community
                 </p>
-                <div className="space-x-2 md:space-x-4">
+                <div 
+                  className={`space-x-2 md:space-x-4 transition-all duration-1000 delay-700 ease-out ${
+                    textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
+                >
                   <NavLink to="/join">
                     <button className="bg-white text-black px-4 py-2 md:px-6 md:py-3 rounded-full cursor-pointer text-sm md:text-base">
                       Join Us

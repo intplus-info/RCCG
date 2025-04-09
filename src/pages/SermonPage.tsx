@@ -416,19 +416,19 @@ const SermonItem = ({ sermon, onClick, print }: SermonItemProps) => (
     <div className='flex items-center  '>
       <a href={sermon.link} target='_blank' rel='noopener noreferrer'>
         <div className=' flex  text-sm text-white h-fit p-4 bg-[#FF7F00]'>
-          <img src={camera} alt='' className='w-4 h-4 mt-1' />
+          <img src={camera} alt='' className='w-2 h-2 md:w-4 md:h-4 mt-1' />
         </div>
       </a>
       <a href={sermon.voice} target='_blank' rel='noopener noreferrer'>
         <div className=' flex  text-sm text-white h-fit p-4 bg-[#FF7F00]'>
-          <img src={Audio} alt='' className='w-4 h-4 mt-1' />
+          <img src={Audio} alt='' className='w-2 h-2 md:w-4 md:h-4 mt-1' />
         </div>
       </a>
       <div
         className=' flex  text-sm text-white h-fit p-4 bg-[#FF7F00] cursor-pointer'
         onClick={print}
       >
-        <img src={pdf} alt='' className='w-4 h-4 mt-1' />
+        <img src={pdf} alt='' className='w-2 h-2 md:w-4 md:h-4 mt-1' />
       </div>
     </div>
   </div>
@@ -625,9 +625,9 @@ const SermonPage = () => {
           }`}
         >
           <div className='flex gap-3 items-center'>
-            <div className='w-28 bg-gray-400 h-0.5'></div>
+            <div className='w-19 md:w-28 bg-gray-400 h-0.5'></div>
             <p className='text-gray-700 text-sm'>Latest Sermons</p>
-            <div className='w-28 bg-gray-400 h-0.5'></div>
+            <div className='w-19 md:w-28 bg-gray-400 h-0.5'></div>
           </div>
 
           {sermonsData.map((sermon, index) => (
