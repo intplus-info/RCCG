@@ -415,17 +415,17 @@ const SermonItem = ({ sermon, onClick, print }: SermonItemProps) => (
     </div>
     <div className='flex items-center  '>
       <a href={sermon.link} target='_blank' rel='noopener noreferrer'>
-        <div className=' flex  text-sm text-white h-fit p-4 bg-[#FF7F00]'>
+        <div className=' flex  text-sm text-white h-fit p-2 md:p-4 bg-[#FF7F00]'>
           <img src={camera} alt='' className='w-2 h-2 md:w-4 md:h-4 mt-1' />
         </div>
       </a>
       <a href={sermon.voice} target='_blank' rel='noopener noreferrer'>
-        <div className=' flex  text-sm text-white h-fit p-4 bg-[#FF7F00]'>
+        <div className=' flex  text-sm text-white h-fit p-2 md:p-4 bg-[#FF7F00]'>
           <img src={Audio} alt='' className='w-2 h-2 md:w-4 md:h-4 mt-1' />
         </div>
       </a>
       <div
-        className=' flex  text-sm text-white h-fit p-4 bg-[#FF7F00] cursor-pointer'
+        className=' flex  text-sm text-white h-fit p-2 md:p-4 bg-[#FF7F00] cursor-pointer'
         onClick={print}
       >
         <img src={pdf} alt='' className='w-2 h-2 md:w-4 md:h-4 mt-1' />
