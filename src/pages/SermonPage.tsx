@@ -398,37 +398,72 @@ interface SermonItemProps {
 }
 
 const SermonItem = ({ sermon, onClick, print }: SermonItemProps) => (
-  <div className='flex justify-between w-full cursor-pointer' onClick={onClick}>
-    <div className='flex gap-4'>
+  <div 
+    className='flex flex-col sm:flex-row justify-between w-full cursor-pointer gap-3 py-2'
+    onClick={onClick}
+  >
+    <div className='flex flex-col sm:flex-row gap-3 sm:gap-4 w-full'>
       <img
         src={sermon.image}
-        alt=''
-        className='w-[69px] h-[63px] md:w-[211px] md:h-[143px]'
+        alt={sermon.title}
+        className='w-full sm:w-[69px] md:w-[120px] lg:w-[211px] h-[120px] sm:h-[63px] md:h-[100px] lg:h-[143px] object-cover'
       />
-      <div className='flex flex-col justify-center gap-2'>
-        <p className='text-sm md:text-2xl hover:underline'>{sermon.title}</p>
-        <p className='text-sm text-gray-600'>
-          By <span className='text-orange-400'>{sermon.author}</span>,{" "}
+      <div className='flex flex-col justify-center gap-1 sm:gap-2'>
+        <p className='text-base sm:text-sm md:text-lg lg:text-2xl font-medium hover:underline transition-all'>
+          {sermon.title}
+        </p>
+        <p className='text-xs sm:text-sm text-gray-600'>
+          By <span className='text-orange-400 font-medium'>{sermon.author}</span>,{" "}
           {sermon.date}
         </p>
       </div>
     </div>
-    <div className='flex items-center  '>
-      <a href={sermon.link} target='_blank' rel='noopener noreferrer'>
-        <div className=' flex  text-sm text-white h-fit p-2 md:p-4 bg-[#FF7F00]'>
-          <img src={camera} alt='' className='w-2 h-2 md:w-4 md:h-4 mt-1' />
-        </div>
-      </a>
-      <a href={sermon.voice} target='_blank' rel='noopener noreferrer'>
-        <div className=' flex  text-sm text-white h-fit p-2 md:p-4 bg-[#FF7F00]'>
-          <img src={Audio} alt='' className='w-2 h-2 md:w-4 md:h-4 mt-1' />
-        </div>
-      </a>
-      <div
-        className=' flex  text-sm text-white h-fit p-2 md:p-4 bg-[#FF7F00] cursor-pointer'
-        onClick={print}
+    
+    <div className='flex items-center mt-3 sm:mt-0 self-end sm:self-auto gap-1'>
+      <a 
+        href={sermon.link} 
+        target='_blank' 
+        rel='noopener noreferrer' 
+        className='block'
+        onClick={(e) => e.stopPropagation()}
       >
-        <img src={pdf} alt='' className='w-2 h-2 md:w-4 md:h-4 mt-1' />
+        <div className='flex text-white h-fit p-2 sm:p-2 md:p-3 lg:p-4 bg-[#FF7F00] hover:bg-[#e67300] transition-colors'>
+          <img 
+            src={camera} 
+            alt='Watch video' 
+            className='w-3 h-3 sm:w-2 sm:h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 m-auto' 
+          />
+        </div>
+      </a>
+      
+      <a 
+        href={sermon.voice} 
+        target='_blank' 
+        rel='noopener noreferrer'
+        className='block'
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className='flex text-white h-fit p-2 sm:p-2 md:p-3 lg:p-4 bg-[#FF7F00] hover:bg-[#e67300] transition-colors'>
+          <img 
+            src={Audio} 
+            alt='Listen audio' 
+            className='w-3 h-3 sm:w-2 sm:h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 m-auto' 
+          />
+        </div>
+      </a>
+      
+      <div
+        className='flex text-white h-fit p-2 sm:p-2 md:p-3 lg:p-4 bg-[#FF7F00] hover:bg-[#e67300] transition-colors cursor-pointer'
+        onClick={(e) => {
+          e.stopPropagation();
+          print();
+        }}
+      >
+        <img 
+          src={pdf} 
+          alt='Download PDF' 
+          className='w-3 h-3 sm:w-2 sm:h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 m-auto' 
+        />
       </div>
     </div>
   </div>
