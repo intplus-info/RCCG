@@ -29,7 +29,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ money }) => {
   return (
     <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-lg relative">
       <form onSubmit={handleSubmit} className="space-y-4">
-        <h2 className="text-center text-sm text-gray-600 mb-4">
+        <h2 className="text-center text-sm font-bold mb-4">
           Please complete your information below.
         </h2>
 

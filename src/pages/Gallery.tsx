@@ -89,14 +89,10 @@ const Gallery = () => {
   </div>
 )}
          <div>
-          <div className='flex flex-col gap-4 justify-center items-center p-6'>
-            <hr className='w-full h-0,5 text-white opacity-50' />
-            <h1 className='text-xl md:text-4xl capitalize text-white'>
-              {" "}
-           Gallery
-            </h1>
-            <hr className='w-full h-0,5 text-white opacity-50' />
-          </div>
+         <div className='w-9 md:w-28 bg-gray-400 h-0.5'></div>
+        <p className='text-gray-700 text-[10px] md:text-lg'>Latest Gallery</p>
+
+        <div className='w-9 md:w-28 bg-gray-400 h-0.5'></div>
         </div>
     </div>
     <div className='flex flex-col justify-center items-center gap-3 p-10'>
