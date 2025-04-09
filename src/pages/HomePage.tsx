@@ -19,43 +19,49 @@ import Footer from "@/components/footer";
 const firstBackgound = "https://i.imgur.com/GZHb8nT.png";
 const secondback = "https://i.imgur.com/UXNy8WO.png";
 const thirdBack = "https://i.imgur.com/BzIQqS9.png"
+const fourtBackground = "https://i.imgur.com/p51lT9A.png";
 const book1 = "https://i.imgur.com/FJNZUFp.png";
-const book2 = "https://i.imgur.com/kJFx9fz.png";
-const bible = "https://i.imgur.com/Vca7WCH.png";
+
 
 const Homepage = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [api, setApi] = useState<CarouselApi>();
   const [textVisible, setTextVisible] = useState(false);
-  const backgroundImages = [firstBackgound, secondback,thirdBack];
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const backgroundImages = [firstBackgound, secondback, thirdBack, fourtBackground];
 
   const events = [
     {
       image: book1,
-      date: "April 30, 2025",
-      title: "Relationship With",
+      date: "Every Sunday 10:00 EST",
+      title: "Sunday Services (Every Sunday)",
       link: "/events",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+      text: "Join us Sundays for powerful worship, Bible-based teaching, and real community. Experience God's presence and find your purpose with us!",
     },
     {
-      image: book2,
-      date: "April 30, 2025",
-      title: "Abundant Love",
+      image: "https://i.imgur.com/J6Y8BJ6.png",
+      date: "Every MWF 8:00 EST",
+      title: "Morning Mercy Prayer meeting ",
       link: "/events",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+      text: "Every Mondays, Wednesdays, and Fridays",
     },
     {
-      image: bible,
-      date: "April 30, 2025",
-      title: "God is Good",
+      image: "https://i.imgur.com/p0slYXK.png",
+      date: "Every Last Saturday 7:00am EST",
+      title: "ICUTL- I Cry Unto The Lord",
       link: "/events",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+      text: "Every Mondays, Wednesdays, and Fridays",
     },
   ];
 
   useEffect(() => {
     if (!api) return;
+
+    // Listen for slide changes
+    api.on("select", () => {
+      setCurrentSlide(api.selectedScrollSnap());
+    });
 
     const interval = setInterval(() => {
       api.scrollNext();
@@ -75,6 +81,9 @@ const Homepage = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Determine if content should be visible (hide when on slide 3 which is the fourth image)
+  const shouldShowContent = currentSlide !== 3;
 
   return (
     <>
@@ -173,33 +182,33 @@ const Homepage = () => {
           )}
 
           <main className="flex-grow flex items-center justify-center h-[50vh] md:h-[70vh] lg:h-[80vh]">
-            <div className="flex items-center justify-center h-full text-white mt-20 px-4">
-              <div className="text-center">
+            <div className="flex items-center justify-center h-full text-white mt-22 md:mt-13 px-4">
+              <div className={`text-center transition-opacity duration-500 ${shouldShowContent ? 'opacity-100' : 'opacity-0'}`}>
                 {/* Animated text elements */}
                 <h1 
                   className={`text-lg md:text-4xl font-normal mb-2 md:mb-4 transition-all duration-1000 ease-out ${
-                    textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+                    textVisible && shouldShowContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
                   }`}
                 >
                   Welcome to
                 </h1>
                 <p 
                   className={`text-xl md:text-5xl font-bold mb-3 md:mb-5 transition-all duration-1000 delay-300 ease-out ${
-                    textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+                    textVisible && shouldShowContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
                   }`}
                 >
                   RCCG StrongTower Stouffville
                 </p>
                 <p 
                   className={`text-base md:text-2xl mb-4 md:mb-8 transition-all duration-1000 delay-500 ease-out ${
-                    textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+                    textVisible && shouldShowContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
                   }`}
                 >
                   A Place of Worship, Growth, and Community
                 </p>
                 <div 
                   className={`space-x-2 md:space-x-4 transition-all duration-1000 delay-700 ease-out ${
-                    textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    textVisible && shouldShowContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                 >
                   <NavLink to="/join">
@@ -254,7 +263,7 @@ const Homepage = () => {
                 <span className="text-base md:text-xl text-[#0D0D0D99] font-bold">
                   {event.date}
                 </span>
-                <p className="text-xl md:text-2xl text-black font-bold">
+                <p className="text-xl md:text-xl text-black font-bold">
                   {event.title}
                 </p>
                 <p className="text-sm md:text-base text-[#0D0D0D99] font-light">

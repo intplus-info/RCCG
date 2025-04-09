@@ -99,7 +99,7 @@ const GivePage = () => {
 
       <div className="flex flex-col text-center gap-4 py-9 px-6 md:px-20 text-[#00000099] text-lg md:text-2xl">
         <p>
-          Welcome to RCCG Strongtower Stouffville, a thriving Christian community rooted in faith,
+          Welcome to <span className="textext-[#00000099] font-bold"> RCCG Strongtower Stouffville</span>, a thriving Christian community rooted in faith,
           love, and the transformative power of God’s Word...
         </p>
         <p>
