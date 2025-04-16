@@ -2,7 +2,7 @@ const image2 = "https://i.imgur.com/K38ANvA.png"
 
 import Header from "../components/Header"
 import { NavLink } from "react-router-dom"; 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const galer1 = "https://i.imgur.com/Ya3Lmzj.png";
 const galer2 = "https://i.imgur.com/D96ELh9.png";
 const galer3 = "https://i.imgur.com/gx5dXn0.png";
@@ -13,7 +13,15 @@ import logo from "../assets/logo.svg";
 import Footer from "@/components/footer";
 const Gallery = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+ useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY >= 30);
+    };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
       <>
         <div
@@ -27,7 +35,9 @@ const Gallery = () => {
     >
       <Header />
 
-      <div className="flex items-center justify-between p-4 w-full">
+      <div  className={` flex items-center justify-between p-4 w-full transition-all duration-300 ${
+          isSticky ? "fixed top-0 left-0 right-0 z-50 bg-black" : "relative"
+        }`}>
       <NavLink to="/">
             <div className="flex items-center">
               <img src={logo} alt="logo" className="w-24 md:w-33" />

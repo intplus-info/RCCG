@@ -1,7 +1,7 @@
 import { Dialog, DialogTrigger, DialogContent, DialogOverlay } from "@/components/ui/dialog";
 import Header from "../components/Header";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../assets/logo.svg";
 import Footer from "@/components/footer";
 import BankPage from "./BankPage";
@@ -12,7 +12,15 @@ const GivePage = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [inputMoney, setInputMoney] = useState("");
   const [open, setOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+ useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY >= 30);
+    };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputMoney(e.target.value);
   };
@@ -31,7 +39,9 @@ const GivePage = () => {
       >
         <Header />
 
-        <div className="flex items-center justify-between p-4 w-full">
+        <div  className={` flex items-center justify-between p-4 w-full transition-all duration-300 ${
+          isSticky ? "fixed top-0 left-0 right-0 z-50 bg-black" : "relative"
+        }`}>
         <NavLink to="/">
             <div className="flex items-center">
               <img src={logo} alt="logo" className="w-24 md:w-33" />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import image10 from "../assets/10.png";
 import camera from "../assets/camera.svg";
 import Audio from "../assets/audio.svg";
@@ -476,7 +476,16 @@ const SermonPage = () => {
   );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPrintView, setIsPrintView] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY >= 30);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const handleSermonClick = (index: number) => {
     setSelectedSermonTitle(sermonsData[index].title);
     setOpenSermon(index === openSermon ? null : index);
@@ -578,7 +587,9 @@ const SermonPage = () => {
       >
         <Header />
 
-        <div className='flex items-center justify-between p-4 w-full'>
+        <div  className={` flex items-center justify-between p-4 w-full transition-all duration-300 ${
+          isSticky ? "fixed top-0 left-0 right-0 z-50 bg-black" : "relative"
+        }`}>
         <NavLink to="/">
             <div className="flex items-center">
               <img src={logo} alt="logo" className="w-24 md:w-33" />

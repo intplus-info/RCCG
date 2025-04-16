@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Header from "@/components/Header";
 import logo from "../assets/logo.svg";
@@ -108,6 +108,7 @@ const EventContent: Event[] = [
 ];
 
 const Events = ({ events, onClick }: EventsProps) => {
+
   return (
     <div
       className="flex flex-col md:flex-row gap-4 w-4/4 cursor-pointer px-6 hover:shadow-lg transition-shadow duration-300"
@@ -142,7 +143,15 @@ const EventPage = () => {
   const [selectedEventIndex, setSelectedEventIndex] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+  const [isSticky, setIsSticky] = useState(false);
+  useEffect(() => {
+     const handleScroll = () => {
+       setIsSticky(window.scrollY >= 30);
+     };
+ 
+     window.addEventListener("scroll", handleScroll);
+     return () => window.removeEventListener("scroll", handleScroll);
+   }, []);
   const handleEventClick = (index: number) => {
     setSelectedEventIndex(index);
     setIsModalOpen(true);
@@ -163,7 +172,9 @@ const EventPage = () => {
       >
         <Header />
 
-        <div className="flex items-center justify-between p-4 w-full">
+        <div  className={` flex items-center justify-between p-4 w-full transition-all duration-300 ${
+          isSticky ? "fixed top-0 left-0 right-0 z-50 bg-black" : "relative"
+        }`}>
           <NavLink to="/">
             <div className="flex items-center">
               <img src={logo} alt="logo" className="w-24 md:w-33" />
